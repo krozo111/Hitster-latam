@@ -1,8 +1,8 @@
 import { useState, useMemo } from 'react';
 import type { GameState, Song } from '../lib/types';
-import SongCard from './SongCard';
-import YouTubePlayer from './YouTubePlayer';
-import ScoreBoard from './ScoreBoard';
+import SongCard from './SongCard.tsx';
+import YouTubePlayer from './YouTubePlayer.tsx';
+import ScoreBoard from './ScoreBoard.tsx';
 
 interface GameBoardProps {
   gameState: GameState;
@@ -65,7 +65,7 @@ export default function GameBoard({
             <span className="text-xs text-white/40 font-display">Sala</span>
             <span className="font-display font-bold text-neon-aqua text-sm">{gameState.roomId}</span>
           </div>
-          
+
           <div className="flex items-center gap-2">
             <span className="text-xs text-white/40">Mazo:</span>
             <span className="font-display font-bold text-neon-purple text-sm">
@@ -89,8 +89,8 @@ export default function GameBoard({
       </div>
 
       {/* Score Board */}
-      <ScoreBoard 
-        players={gameState.players} 
+      <ScoreBoard
+        players={gameState.players}
         currentPlayerIdx={gameState.currentPlayerIdx}
         myPlayerIndex={myPlayerIndex}
       />

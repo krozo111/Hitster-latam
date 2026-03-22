@@ -10,70 +10,108 @@ import type { Song } from './types';
 // y SIEMPRE permiten reproducción embebida.
 
 export const SONGS: Song[] = [
-  // === CLÁSICOS (antes de 1990) ===
-  { id: 1, title: "La Bamba", artist: "Ritchie Valens", year: 1958, yt: "Jp6j5HJ-Cok" },
-  { id: 2, title: "Oye Como Va", artist: "Santana", year: 1970, yt: "8NsJ84YV1oA" },
-  { id: 3, title: "Quimbara", artist: "Celia Cruz", year: 1974, yt: "s4LkPOSafDI" },
-  { id: 4, title: "Pedro Navaja", artist: "Rubén Blades", year: 1978, yt: "X_dAU8tMcqs" },
-  { id: 5, title: "Chica de Humo", artist: "Emmanuel", year: 1985, yt: "s3kDMU9Nma0" },
-
-  // === 80s-90s ROCK LATINO ===
-  { id: 6, title: "Persiana Americana", artist: "Soda Stereo", year: 1986, yt: "KJafHwJbMWs" },
-  { id: 7, title: "La Incondicional", artist: "Luis Miguel", year: 1989, yt: "rCjlojv9VkA" },
-  { id: 8, title: "De Música Ligera", artist: "Soda Stereo", year: 1990, yt: "KMhhDnVVyPM" },
-  { id: 9, title: "Burbujas de Amor", artist: "Juan Luis Guerra", year: 1990, yt: "Wo9MfJ7Ul2E" },
-  { id: 10, title: "Rayando el Sol", artist: "Maná", year: 1992, yt: "HdFRfROWoLI" },
-
-  // === 90s POP LATINO ===
-  { id: 11, title: "Vivir Sin Aire", artist: "Maná", year: 1992, yt: "vg9Pgf_JNKA" },
-  { id: 12, title: "Macarena", artist: "Los del Río", year: 1993, yt: "zWaymcVmJ-A" },
-  { id: 13, title: "Amor Prohibido", artist: "Selena", year: 1994, yt: "sSSh1hTSofM" },
-  { id: 14, title: "Lamento Boliviano", artist: "Enanitos Verdes", year: 1994, yt: "TK3KCRUFe2M" },
-  { id: 15, title: "Bidi Bidi Bom Bom", artist: "Selena", year: 1994, yt: "h7TunHAmVHQ" },
-  { id: 16, title: "La Flaca", artist: "Jarabe de Palo", year: 1996, yt: "c7Kv6PaqPIs" },
-  { id: 17, title: "Suavemente", artist: "Elvis Crespo", year: 1998, yt: "WPiEbYSjOXs" },
-  { id: 18, title: "Clandestino", artist: "Manu Chao", year: 1998, yt: "rKS4LkbS2W8" },
-
-  // === LATE 90s - 2000s ===
-  { id: 19, title: "Corazón Espinado", artist: "Maná ft. Santana", year: 1999, yt: "MHBkla23fDM" },
-  { id: 20, title: "Livin' la Vida Loca", artist: "Ricky Martin", year: 1999, yt: "p47fEXGabaY" },
-  { id: 21, title: "Obsesión", artist: "Aventura", year: 2002, yt: "xkMIBLHd7Xg" },
-  { id: 22, title: "Gasolina", artist: "Daddy Yankee", year: 2004, yt: "qGKrc3A6HHM" },
-  { id: 23, title: "La Camisa Negra", artist: "Juanes", year: 2004, yt: "MZ2P0jnk2Zk" },
-  { id: 24, title: "La Tortura", artist: "Shakira ft. Alejandro Sanz", year: 2005, yt: "Dsp_8Lm1eSk" },
-  { id: 25, title: "Atrévete-te-te", artist: "Calle 13", year: 2005, yt: "vXtJkDHEAAc" },
-  { id: 26, title: "Hips Don't Lie", artist: "Shakira ft. Wyclef Jean", year: 2006, yt: "DUT5rEU6pqM" },
-
-  // === 2010s ===
-  { id: 27, title: "Danza Kuduro", artist: "Don Omar ft. Lucenzo", year: 2010, yt: "7zp1TbLFPp8" },
-  { id: 28, title: "Waka Waka", artist: "Shakira", year: 2010, yt: "pRpeEdMmmQ0" },
-  { id: 29, title: "Vivir Mi Vida", artist: "Marc Anthony", year: 2013, yt: "YXnjy5YlDwk" },
-  { id: 30, title: "Bailando", artist: "Enrique Iglesias ft. Gente de Zona", year: 2014, yt: "NUsoVlDFqZg" },
-  { id: 31, title: "El Perdón", artist: "Nicky Jam & Enrique Iglesias", year: 2015, yt: "hXI8RQYC36Q" },
-  { id: 32, title: "Reggaetón Lento", artist: "CNCO", year: 2016, yt: "v_VoFrnCnGs" },
-  { id: 33, title: "Chantaje", artist: "Shakira ft. Maluma", year: 2016, yt: "6Mgqbai3fKo" },
-  { id: 34, title: "Despacito", artist: "Luis Fonsi ft. Daddy Yankee", year: 2017, yt: "kJQP7kiw5Fk" },
-  { id: 35, title: "Mi Gente", artist: "J Balvin ft. Willy William", year: 2017, yt: "wnJ6LuUFpMo" },
-  { id: 36, title: "Felices los 4", artist: "Maluma", year: 2017, yt: "t_jHrUE5IOk" },
-  { id: 37, title: "Robarte un Beso", artist: "Carlos Vives ft. Sebastián Yatra", year: 2017, yt: "2vEStDd6Yz0" },
-
-  // === LATE 2010s ===
-  { id: 38, title: "X (Equis)", artist: "Nicky Jam & J Balvin", year: 2018, yt: "_I_D_8Z4sJE" },
-  { id: 39, title: "Calma", artist: "Pedro Capó", year: 2018, yt: "1_zgKRBrT0Y" },
-  { id: 40, title: "Con Calma", artist: "Daddy Yankee ft. Snow", year: 2019, yt: "DiItGE3eAyQ" },
-  { id: 41, title: "Tusa", artist: "Karol G ft. Nicki Minaj", year: 2019, yt: "tbneQYkXSMo" },
-
-  // === 2020s ===
-  { id: 42, title: "BICHOTA", artist: "Karol G", year: 2020, yt: "do3Pgo01eTo" },
-  { id: 43, title: "Hawái", artist: "Maluma", year: 2020, yt: "FiGCnKODCIE" },
-  { id: 44, title: "Pepas", artist: "Farruko", year: 2021, yt: "kFO0RX4VgJo" },
-  { id: 45, title: "Yonaguni", artist: "Bad Bunny", year: 2021, yt: "doLMt10ytHY" },
-  { id: 46, title: "Provenza", artist: "Karol G", year: 2022, yt: "PqWUih5bJpI" },
-  { id: 47, title: "Me Porto Bonito", artist: "Bad Bunny ft. Chencho Corleone", year: 2022, yt: "VSh1S1WeKwY" },
-  { id: 48, title: "Ojitos Lindos", artist: "Bad Bunny ft. Bomba Estéreo", year: 2022, yt: "5fKMjXqaoLk" },
-  { id: 49, title: "TQG", artist: "Karol G ft. Shakira", year: 2023, yt: "6jOVgDYwk2E" },
-  { id: 50, title: "La Bebe", artist: "Yng Lvcas ft. Peso Pluma", year: 2023, yt: "nsvhxlhDCJc" },
+  { id: 1, title: "La Gota Fría", artist: "Carlos Vives", year: 1993, yt: "Nmb80HXWsFQ" }, // Topic
+  { id: 2, title: "El Preso", artist: "Fruko y sus Tesos", year: 1975, yt: "FN5oLBXiNvM" }, // Topic
+  { id: 3, title: "Rebelión", artist: "Joe Arroyo", year: 1986, yt: "oWBf9hfW_4Y" }, // Lyric
+  { id: 4, title: "La Pollera Colorá", artist: "Wilson Choperena", year: 1962, yt: "ePsvyjinsJg" }, 
+  { id: 5, title: "Obsesión", artist: "Las Estrellas Vallenatas", year: 1995, yt: "kIb2WJeKTdg" },
+  { id: 6, title: "Sin Medir Distancias", artist: "Diomedes Díaz", year: 1986, yt: "lAITJiV8xbQ" },
+  { id: 7, title: "Se Me Perdió La Cadenita", artist: "La Sonora Dinamita", year: 1978, yt: "nus7qV5q9bU" },
+  { id: 8, title: "El Santo Cachón", artist: "Los Embajadores Vallenatos", year: 1994, yt: "O8axbKX1JVo" },
+  { id: 9, title: "Carmen de Bolívar", artist: "Lucho Bermúdez", year: 1952, yt: "qF7BYTnYPZA" },
+  { id: 10, title: "En Barranquilla Me Quedo", artist: "Joe Arroyo", year: 1988, yt: "j8ElCh65bzk" },
+  { id: 11, title: "Tarde Lo Conocí", artist: "Patricia Teherán", year: 1994, yt: "1Qa9_RkUglY" },
+  { id: 12, title: "Oye", artist: "La Sonora Dinamita", year: 1992, yt: "RYDtOs5jqPU" },
+  { id: 13, title: "Mi Niña Bonita", artist: "Binomio de Oro", year: 1993, yt: "DR6ED6lvkb4" },
+  { id: 14, title: "Las Caleñas Son Como Las Flores", artist: "The Latin Brothers", year: 1974, yt: "4XctaL5aHPg" },
+  { id: 15, title: "Los Caminos de la Vida", artist: "Los Diablitos", year: 1992, yt: "I-cOD2x-qBs" },
+  { id: 16, title: "Bohemian Rhapsody", artist: "Queen", year: 1975, yt: "fJ9rUzIMcZQ" },
+  { id: 17, title: "Billie Jean", artist: "Michael Jackson", year: 1982, yt: "Zi_XLOBDo_Y" },
+  { id: 18, title: "Smells Like Teen Spirit", artist: "Nirvana", year: 1991, yt: "hTWKbfoikeg" },
+  { id: 19, title: "Hey Jude", artist: "The Beatles", year: 1968, yt: "A_MjCqQoLLA" },
+  { id: 20, title: "Like a Rolling Stone", artist: "Bob Dylan", year: 1965, yt: "IwOfCgkyEj0" },
+  { id: 21, title: "I Will Always Love You", artist: "Whitney Houston", year: 1992, yt: "3JWTaaS7LdU" },
+  { id: 22, title: "Hotel California", artist: "Eagles", year: 1976, yt: "dLl4PZtxia8" },
+  { id: 23, title: "Rolling in the Deep", artist: "Adele", year: 2010, yt: "rYEDA3JcQqw" },
+  { id: 24, title: "Imagine", artist: "John Lennon", year: 1971, yt: "Ts0XSyWpMnU" },
+  { id: 25, title: "Sweet Child O' Mine", artist: "Guns N' Roses", year: 1987, yt: "1w7OgIMMRc4" },
+  { id: 26, title: "Shape of You", artist: "Ed Sheeran", year: 2017, yt: "JGwWNGJdvx8" },
+  { id: 27, title: "Blinding Lights", artist: "The Weeknd", year: 2019, yt: "4NRXx6U8ABQ" },
+  { id: 28, title: "Superstition", artist: "Stevie Wonder", year: 1972, yt: "0CFuCYNx-1g" },
+  { id: 29, title: "Uptown Funk", artist: "Mark Ronson ft. Bruno Mars", year: 2014, yt: "OPf0YbXqDm0" },
+  { id: 30, title: "Wonderwall", artist: "Oasis", year: 1995, yt: "bx1Bh8ZvH84" },
+  { id: 31, title: "Thriller", artist: "Michael Jackson", year: 1982, yt: "sOnqjkJTMaA" },
+  { id: 32, title: "Let It Be", artist: "The Beatles", year: 1970, yt: "CGj85pVzRJs" },
+  { id: 33, title: "Stayin' Alive", artist: "Bee Gees", year: 1977, yt: "fNFzfwLM72c" },
+  { id: 34, title: "Don't Stop Believin'", artist: "Journey", year: 1981, yt: "1k8craCGpgs" },
+  { id: 35, title: "Take On Me", artist: "a-ha", year: 1985, yt: "djV11Xbc914" },
+  { id: 36, title: "Persiana Americana", artist: "Soda Stereo", year: 1986, yt: "LalPz4lIZYk" }, // Topic
+  { id: 37, title: "De Música Ligera", artist: "Soda Stereo", year: 1990, yt: "T_FkEw27XJ0" }, // Topic
+  { id: 38, title: "La Flaca", artist: "Jarabe de Palo", year: 1996, yt: "r2g0pM3PMNQ" }, // Topic
+  { id: 39, title: "Lamento Boliviano", artist: "Enanitos Verdes", year: 1994, yt: "QwLJ7zZgeek" }, // Topic
+  { id: 40, title: "Rayando el Sol", artist: "Maná", year: 1992, yt: "8lbsQyMhMT8" }, // Topic
+  { id: 41, title: "Vivir Sin Aire", artist: "Maná", year: 1992, yt: "g3uxeG1rrlE" }, // Topic
+  { id: 42, title: "A Dios Le Pido", artist: "Juanes", year: 2002, yt: "kMIaYXxLnUA" }, // Lyric
+  { id: 43, title: "La Camisa Negra", artist: "Juanes", year: 2004, yt: "kRt2sRyup6A" },
+  { id: 44, title: "Oye Mi Amor", artist: "Maná", year: 1992, yt: "h0p8yTqj8i4" }, // Topic
+  { id: 45, title: "Tren Al Sur", artist: "Los Prisioneros", year: 1990, yt: "WRcCBI5rFfM" },
+  { id: 46, title: "Mil Horas", artist: "Los Abuelos de la Nada", year: 1983, yt: "1To_Wz5RWi0" },
+  { id: 47, title: "Mariposa Traicionera", artist: "Maná", year: 2002, yt: "av3wkasS-WQ" },
+  { id: 48, title: "Matador", artist: "Los Fabulosos Cadillacs", year: 1993, yt: "pjPA7CXutDw" },
+  { id: 49, title: "En La Ciudad De La Furia", artist: "Soda Stereo", year: 1988, yt: "VoGwvVoaoCw" },
+  { id: 50, title: "Eres", artist: "Café Tacvba", year: 2003, yt: "98Akpf1ph2o" },
+  { id: 51, title: "Oye Como Va", artist: "Santana", year: 1970, yt: "J7ATTjg7tpE" }, 
+  { id: 52, title: "Burbujas de Amor", artist: "Juan Luis Guerra", year: 1990, yt: "v0ckuv1xBm0" }, // Topic
+  { id: 53, title: "Pedro Navaja", artist: "Rubén Blades", year: 1978, yt: "0hcoNykaI3k" }, 
+  { id: 54, title: "La Incondicional", artist: "Luis Miguel", year: 1989, yt: "wOjzo02Tmck" }, // Lyric
+  { id: 55, title: "El Rey", artist: "Vicente Fernández", year: 1971, yt: "zhHrefOdlLs" },
+  { id: 56, title: "Cielito Lindo", artist: "Pedro Infante", year: 1952, yt: "U5RC3BJ2PMo" },
+  { id: 57, title: "Querida", artist: "Juan Gabriel", year: 1984, yt: "AQOJ4qF0alk" },
+  { id: 58, title: "Macarena", artist: "Los del Río", year: 1993, yt: "zWaymcVmJ-A" },
+  { id: 59, title: "Suavemente", artist: "Elvis Crespo", year: 1998, yt: "WPiEbYSF9kE" },
+  { id: 60, title: "Amor Prohibido", artist: "Selena", year: 1994, yt: "dvfZ95ueOcQ" },
+  { id: 61, title: "Gasolina", artist: "Daddy Yankee", year: 2004, yt: "CCF1_jI8Prk" }, // Audio 
+  { id: 62, title: "Danza Kuduro", artist: "Don Omar ft. Lucenzo", year: 2010, yt: "7zp1TbLFPp8" }, // Lyric
+  { id: 63, title: "Despacito", artist: "Luis Fonsi ft. Daddy Yankee", year: 2017, yt: "kJQP7kiw5Fk" }, // Audio
+  { id: 64, title: "Mi Gente", artist: "J Balvin", year: 2017, yt: "wnJ6LuUFpMo" }, // Audio
+  { id: 65, title: "Hawái", artist: "Maluma", year: 2020, yt: "pK060iUFWXg" }, // Lyric
+  { id: 66, title: "BICHOTA", artist: "Karol G", year: 2020, yt: "QaXhVryxVBk" }, // Lyric
+  { id: 67, title: "Tusa", artist: "Karol G ft. Nicki Minaj", year: 2019, yt: "tbneQDc2H3I" }, 
+  { id: 68, title: "Con Calma", artist: "Daddy Yankee ft. Snow", year: 2019, yt: "DiItGE3eAyQ" }, 
+  { id: 69, title: "Yonaguni", artist: "Bad Bunny", year: 2021, yt: "doLMt10ytHY" }, 
+  { id: 70, title: "Pepas", artist: "Farruko", year: 2021, yt: "y8trd3gjJt0" }, 
+  { id: 71, title: "Me Porto Bonito", artist: "Bad Bunny ft. Chencho", year: 2022, yt: "saGYMhApaH8" }, 
+  { id: 72, title: "Ojitos Lindos", artist: "Bad Bunny", year: 2022, yt: "wAjHQXrIj9o" }, 
+  { id: 73, title: "Provenza", artist: "Karol G", year: 2022, yt: "ca48oMV59LU" }, 
+  { id: 74, title: "TQG", artist: "Karol G ft. Shakira", year: 2023, yt: "jZGpkLElSu8" }, 
+  { id: 75, title: "X (Equis)", artist: "Nicky Jam & J Balvin", year: 2018, yt: "_I_D_8Z4sJE" }, 
+  { id: 76, title: "Reggaetón Lento", artist: "CNCO", year: 2016, yt: "7jpqqBX-Myw" }, 
+  { id: 77, title: "Chantaje", artist: "Shakira ft. Maluma", year: 2016, yt: "6Mgqbai3fKo" }, 
+  { id: 78, title: "Felices los 4", artist: "Maluma", year: 2017, yt: "t_jHrUE5IOk" }, 
+  { id: 79, title: "Bailando", artist: "Enrique Iglesias", year: 2014, yt: "b8I-7Wk_Vbc" }, 
+  { id: 80, title: "El Perdón", artist: "Nicky Jam", year: 2015, yt: "1m7TF2nVV1c" }, 
+  { id: 81, title: "Waka Waka", artist: "Shakira", year: 2010, yt: "pRpeEdMmmQ0" },
+  { id: 82, title: "La Tortura", artist: "Shakira", year: 2005, yt: "Dsp_8Lm1eSk" },
+  { id: 83, title: "Hips Don't Lie", artist: "Shakira", year: 2006, yt: "DUT5rEU6pqM" },
+  { id: 84, title: "Vivir Mi Vida", artist: "Marc Anthony", year: 2013, yt: "YXnjy5YlDwk" },
+  { id: 85, title: "Calma", artist: "Pedro Capó", year: 2018, yt: "1_zgKRBrT0Y" },
+  { id: 86, title: "Robarte un Beso", artist: "Carlos Vives", year: 2017, yt: "Mtau4v6foHA" },
+  { id: 87, title: "Atrévete-te-te", artist: "Calle 13", year: 2005, yt: "vXtJkDHEAAc" },
+  { id: 88, title: "Dile", artist: "Don Omar", year: 2004, yt: "zODmu06pqvg" },
+  { id: 89, title: "Mayor Que Yo", artist: "Luny Tunes", year: 2005, yt: "dTlXIbgVuc0" },
+  { id: 90, title: "Rakata", artist: "Wisin & Yandel", year: 2005, yt: "uvIuAHsfNdc" },
+  { id: 91, title: "Pam Pam", artist: "Wisin & Yandel", year: 2006, yt: "ZoVCM5iUaL0" },
+  { id: 92, title: "Llueve Sobre Mojado", artist: "Fito Páez & Joaquín Sabina", year: 1996, yt: "Y1cTclxGE64" },
+  { id: 93, title: "Limón y Sal", artist: "Julieta Venegas", year: 2006, yt: "tIpzfs5tBJU" },
+  { id: 94, title: "Algo Está Cayendo Aquí", artist: "José Luis Reyes", year: 2007, yt: "slxWCex0heQ" },
+  { id: 95, title: "Color Esperanza", artist: "Diego Torres", year: 2001, yt: "Nb1VOQRs-Vs" },
+  { id: 96, title: "Mi Primer Millón", artist: "Bacilos", year: 2002, yt: "F5-oCyBQW8k" },
+  { id: 97, title: "Caraluna", artist: "Bacilos", year: 2002, yt: "-zgDXIi1uYw" },
+  { id: 98, title: "El Niágara en Bicicleta", artist: "Juan Luis Guerra", year: 1998, yt: "Ae6EQYHjN4M" },
+  { id: 99, title: "Las Avispas", artist: "Juan Luis Guerra", year: 2004, yt: "ihZQAh4jr4M" },
+  { id: 100, title: "Me Enamora", artist: "Juanes", year: 2007, yt: "voxgN3Dhjuo" },
 ];
+
 
 export function shuffleSongs(songs: Song[]): Song[] {
   const shuffled = [...songs];

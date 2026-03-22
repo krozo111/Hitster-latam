@@ -16,11 +16,11 @@ import {
   drawNextCard,
   placeCard,
 } from '../lib/gameLogic';
-import Landing from './Landing';
-import Lobby from './Lobby';
-import GameBoard from './GameBoard';
-import ResultOverlay from './ResultOverlay';
-import VictoryScreen from './VictoryScreen';
+import Landing from './Landing.tsx';
+import Lobby from './Lobby.tsx';
+import GameBoard from './GameBoard.tsx';
+import ResultOverlay from './ResultOverlay.tsx';
+import VictoryScreen from './VictoryScreen.tsx';
 
 export default function App() {
   const [screen, setScreen] = useState<'landing' | 'lobby' | 'game'>('landing');
@@ -30,6 +30,7 @@ export default function App() {
   const [error, setError] = useState<string>('');
   const [showResult, setShowResult] = useState(false);
   const [isHost, setIsHost] = useState(false);
+  const [isSolo, setIsSolo] = useState(false);
   const unsubRef = useRef<(() => void) | null>(null);
 
   // Initialize Firebase on mount
@@ -44,10 +45,10 @@ export default function App() {
   // Subscribe to room state changes
   const subscribeRoom = useCallback((id: string) => {
     if (unsubRef.current) unsubRef.current();
-    
+
     const unsub = subscribeToRoom(id, (state) => {
       setGameState(state);
-      
+
       if (state.phase === 'playing' && screen !== 'game') {
         setScreen('game');
       }
@@ -72,10 +73,11 @@ export default function App() {
       const code = generateRoomCode();
       const initialState = createInitialState(code, playerName);
       await createRoom(code, initialState);
-      
+
       setRoomId(code);
       setMyPlayerIndex(0);
       setIsHost(true);
+      setIsSolo(false);
       subscribeRoom(code);
       setScreen('lobby');
     } catch (e) {
@@ -84,12 +86,24 @@ export default function App() {
     }
   };
 
+  // SOLO MODE
+  const handlePlaySolo = () => {
+    setIsSolo(true);
+    setMyPlayerIndex(0);
+    setIsHost(true);
+    const code = "SOLO";
+    const initial = createInitialState(code, "Jugador Solitario");
+    const started = startGame(initial);
+    setGameState(started);
+    setScreen('game');
+  };
+
   // JOIN ROOM
   const handleJoinRoom = async (code: string, playerName: string) => {
     try {
       setError('');
       const state = await getRoomState(code.toUpperCase());
-      
+
       if (!state) {
         setError('Sala no encontrada. Verifica el código.');
         return;
@@ -105,12 +119,13 @@ export default function App() {
 
       const updatedState = addPlayerToState(state, playerName);
       const newIndex = updatedState.players.length - 1;
-      
+
       await setRoomState(code.toUpperCase(), updatedState);
-      
+
       setRoomId(code.toUpperCase());
       setMyPlayerIndex(newIndex);
       setIsHost(false);
+      setIsSolo(false);
       subscribeRoom(code.toUpperCase());
       setScreen('lobby');
     } catch (e) {
@@ -134,10 +149,14 @@ export default function App() {
   // PLACE CARD
   const handlePlaceCard = async (insertIdx: number) => {
     if (!gameState || gameState.currentPlayerIdx !== myPlayerIndex) return;
-    
+
     try {
       const result = placeCard(gameState, myPlayerIndex, insertIdx);
-      await setRoomState(roomId, result);
+      if (isSolo) {
+        setGameState(result);
+      } else {
+        await setRoomState(roomId, result);
+      }
       setShowResult(true);
     } catch (e) {
       setError('Error al colocar la carta.');
@@ -150,7 +169,11 @@ export default function App() {
     if (!gameState) return;
     try {
       const nextState = drawNextCard(gameState);
-      await setRoomState(roomId, nextState);
+      if (isSolo) {
+        setGameState(nextState);
+      } else {
+        await setRoomState(roomId, nextState);
+      }
       setShowResult(false);
     } catch (e) {
       setError('Error al pasar turno.');
@@ -182,6 +205,7 @@ export default function App() {
         <Landing
           onCreateRoom={handleCreateRoom}
           onJoinRoom={handleJoinRoom}
+          onPlaySolo={handlePlaySolo}
           error={error}
         />
       )}
@@ -226,6 +250,7 @@ export default function App() {
             setGameState(null);
             setRoomId('');
             setMyPlayerIndex(-1);
+            setIsSolo(false);
           }}
         />
       )}

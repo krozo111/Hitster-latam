@@ -5,11 +5,11 @@ export default {
     extend: {
       colors: {
         neon: {
-          coral: '#FF6B6B',
-          aqua: '#4ECDC4',
-          purple: '#A855F7',
-          pink: '#F472B6',
-          yellow: '#FBBF24',
+          coral: '#FF7E00',  // Warm Orange
+          aqua: '#00B4D8',   // Bright Teal
+          purple: '#0077B6', // Dark Teal
+          pink: '#FFA500',   // Light Orange
+          yellow: '#FBBF24', // Gold/Yellow
         },
         dark: {
           900: '#0a0a0f',

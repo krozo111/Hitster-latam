@@ -3,10 +3,11 @@ import { useState } from 'react';
 interface LandingProps {
   onCreateRoom: (name: string) => void;
   onJoinRoom: (code: string, name: string) => void;
+  onPlaySolo: () => void;
   error: string;
 }
 
-export default function Landing({ onCreateRoom, onJoinRoom, error }: LandingProps) {
+export default function Landing({ onCreateRoom, onJoinRoom, onPlaySolo, error }: LandingProps) {
   const [mode, setMode] = useState<'menu' | 'create' | 'join'>('menu');
   const [playerName, setPlayerName] = useState('');
   const [roomCode, setRoomCode] = useState('');
@@ -88,6 +89,25 @@ export default function Landing({ onCreateRoom, onJoinRoom, error }: LandingProp
               <p className="text-white/40 text-xs">Ingresa el código de tu amigo</p>
             </div>
             <span className="ml-auto text-neon-purple/50 group-hover:text-neon-purple 
+                             group-hover:translate-x-1 transition-all">→</span>
+          </button>
+
+          <button
+            id="btn-play-solo"
+            onClick={onPlaySolo}
+            className="w-full glass-card p-5 neon-glow-coral border-neon-coral/30
+                       flex items-center gap-4 group
+                       transition-all duration-300 hover:scale-[1.02] active:scale-95"
+          >
+            <div className="w-12 h-12 rounded-xl bg-neon-coral/20 flex items-center justify-center
+                            group-hover:bg-neon-coral/30 transition-colors">
+              <span className="text-2xl">🎧</span>
+            </div>
+            <div className="text-left">
+              <p className="font-display font-bold text-lg text-neon-coral">Modo Solitario</p>
+              <p className="text-white/40 text-xs">Juega y practica por tu cuenta</p>
+            </div>
+            <span className="ml-auto text-neon-coral/50 group-hover:text-neon-coral 
                              group-hover:translate-x-1 transition-all">→</span>
           </button>
 
