@@ -10,106 +10,214 @@ import type { Song } from './types';
 // y SIEMPRE permiten reproducción embebida.
 
 export const SONGS: Song[] = [
-  { id: 1, title: "La Gota Fría", artist: "Carlos Vives", year: 1993, yt: "Nmb80HXWsFQ" }, // Topic
-  { id: 2, title: "El Preso", artist: "Fruko y sus Tesos", year: 1975, yt: "FN5oLBXiNvM" }, // Topic
-  { id: 3, title: "Rebelión", artist: "Joe Arroyo", year: 1986, yt: "oWBf9hfW_4Y" }, // Lyric
-  { id: 4, title: "La Pollera Colorá", artist: "Wilson Choperena", year: 1962, yt: "ePsvyjinsJg" }, 
-  { id: 5, title: "Obsesión", artist: "Las Estrellas Vallenatas", year: 1995, yt: "kIb2WJeKTdg" },
-  { id: 6, title: "Sin Medir Distancias", artist: "Diomedes Díaz", year: 1986, yt: "lAITJiV8xbQ" },
-  { id: 7, title: "Se Me Perdió La Cadenita", artist: "La Sonora Dinamita", year: 1978, yt: "nus7qV5q9bU" },
-  { id: 8, title: "El Santo Cachón", artist: "Los Embajadores Vallenatos", year: 1994, yt: "O8axbKX1JVo" },
-  { id: 9, title: "Carmen de Bolívar", artist: "Lucho Bermúdez", year: 1952, yt: "qF7BYTnYPZA" },
-  { id: 10, title: "En Barranquilla Me Quedo", artist: "Joe Arroyo", year: 1988, yt: "j8ElCh65bzk" },
-  { id: 11, title: "Tarde Lo Conocí", artist: "Patricia Teherán", year: 1994, yt: "1Qa9_RkUglY" },
-  { id: 12, title: "Oye", artist: "La Sonora Dinamita", year: 1992, yt: "RYDtOs5jqPU" },
-  { id: 13, title: "Mi Niña Bonita", artist: "Binomio de Oro", year: 1993, yt: "DR6ED6lvkb4" },
-  { id: 14, title: "Las Caleñas Son Como Las Flores", artist: "The Latin Brothers", year: 1974, yt: "4XctaL5aHPg" },
-  { id: 15, title: "Los Caminos de la Vida", artist: "Los Diablitos", year: 1992, yt: "I-cOD2x-qBs" },
-  { id: 16, title: "Bohemian Rhapsody", artist: "Queen", year: 1975, yt: "fJ9rUzIMcZQ" },
-  { id: 17, title: "Billie Jean", artist: "Michael Jackson", year: 1982, yt: "Zi_XLOBDo_Y" },
-  { id: 18, title: "Smells Like Teen Spirit", artist: "Nirvana", year: 1991, yt: "hTWKbfoikeg" },
-  { id: 19, title: "Hey Jude", artist: "The Beatles", year: 1968, yt: "A_MjCqQoLLA" },
-  { id: 20, title: "Like a Rolling Stone", artist: "Bob Dylan", year: 1965, yt: "IwOfCgkyEj0" },
-  { id: 21, title: "I Will Always Love You", artist: "Whitney Houston", year: 1992, yt: "3JWTaaS7LdU" },
-  { id: 22, title: "Hotel California", artist: "Eagles", year: 1976, yt: "dLl4PZtxia8" },
-  { id: 23, title: "Rolling in the Deep", artist: "Adele", year: 2010, yt: "rYEDA3JcQqw" },
-  { id: 24, title: "Imagine", artist: "John Lennon", year: 1971, yt: "Ts0XSyWpMnU" },
-  { id: 25, title: "Sweet Child O' Mine", artist: "Guns N' Roses", year: 1987, yt: "1w7OgIMMRc4" },
-  { id: 26, title: "Shape of You", artist: "Ed Sheeran", year: 2017, yt: "JGwWNGJdvx8" },
-  { id: 27, title: "Blinding Lights", artist: "The Weeknd", year: 2019, yt: "4NRXx6U8ABQ" },
-  { id: 28, title: "Superstition", artist: "Stevie Wonder", year: 1972, yt: "0CFuCYNx-1g" },
-  { id: 29, title: "Uptown Funk", artist: "Mark Ronson ft. Bruno Mars", year: 2014, yt: "OPf0YbXqDm0" },
-  { id: 30, title: "Wonderwall", artist: "Oasis", year: 1995, yt: "bx1Bh8ZvH84" },
-  { id: 31, title: "Thriller", artist: "Michael Jackson", year: 1982, yt: "sOnqjkJTMaA" },
-  { id: 32, title: "Let It Be", artist: "The Beatles", year: 1970, yt: "CGj85pVzRJs" },
-  { id: 33, title: "Stayin' Alive", artist: "Bee Gees", year: 1977, yt: "fNFzfwLM72c" },
-  { id: 34, title: "Don't Stop Believin'", artist: "Journey", year: 1981, yt: "1k8craCGpgs" },
-  { id: 35, title: "Take On Me", artist: "a-ha", year: 1985, yt: "djV11Xbc914" },
-  { id: 36, title: "Persiana Americana", artist: "Soda Stereo", year: 1986, yt: "LalPz4lIZYk" }, // Topic
-  { id: 37, title: "De Música Ligera", artist: "Soda Stereo", year: 1990, yt: "T_FkEw27XJ0" }, // Topic
-  { id: 38, title: "La Flaca", artist: "Jarabe de Palo", year: 1996, yt: "r2g0pM3PMNQ" }, // Topic
-  { id: 39, title: "Lamento Boliviano", artist: "Enanitos Verdes", year: 1994, yt: "QwLJ7zZgeek" }, // Topic
-  { id: 40, title: "Rayando el Sol", artist: "Maná", year: 1992, yt: "8lbsQyMhMT8" }, // Topic
-  { id: 41, title: "Vivir Sin Aire", artist: "Maná", year: 1992, yt: "g3uxeG1rrlE" }, // Topic
-  { id: 42, title: "A Dios Le Pido", artist: "Juanes", year: 2002, yt: "kMIaYXxLnUA" }, // Lyric
-  { id: 43, title: "La Camisa Negra", artist: "Juanes", year: 2004, yt: "kRt2sRyup6A" },
-  { id: 44, title: "Oye Mi Amor", artist: "Maná", year: 1992, yt: "h0p8yTqj8i4" }, // Topic
-  { id: 45, title: "Tren Al Sur", artist: "Los Prisioneros", year: 1990, yt: "WRcCBI5rFfM" },
-  { id: 46, title: "Mil Horas", artist: "Los Abuelos de la Nada", year: 1983, yt: "1To_Wz5RWi0" },
-  { id: 47, title: "Mariposa Traicionera", artist: "Maná", year: 2002, yt: "av3wkasS-WQ" },
-  { id: 48, title: "Matador", artist: "Los Fabulosos Cadillacs", year: 1993, yt: "pjPA7CXutDw" },
-  { id: 49, title: "En La Ciudad De La Furia", artist: "Soda Stereo", year: 1988, yt: "VoGwvVoaoCw" },
-  { id: 50, title: "Eres", artist: "Café Tacvba", year: 2003, yt: "98Akpf1ph2o" },
-  { id: 51, title: "Oye Como Va", artist: "Santana", year: 1970, yt: "J7ATTjg7tpE" }, 
-  { id: 52, title: "Burbujas de Amor", artist: "Juan Luis Guerra", year: 1990, yt: "v0ckuv1xBm0" }, // Topic
-  { id: 53, title: "Pedro Navaja", artist: "Rubén Blades", year: 1978, yt: "0hcoNykaI3k" }, 
-  { id: 54, title: "La Incondicional", artist: "Luis Miguel", year: 1989, yt: "wOjzo02Tmck" }, // Lyric
-  { id: 55, title: "El Rey", artist: "Vicente Fernández", year: 1971, yt: "zhHrefOdlLs" },
-  { id: 56, title: "Cielito Lindo", artist: "Pedro Infante", year: 1952, yt: "U5RC3BJ2PMo" },
-  { id: 57, title: "Querida", artist: "Juan Gabriel", year: 1984, yt: "AQOJ4qF0alk" },
-  { id: 58, title: "Macarena", artist: "Los del Río", year: 1993, yt: "zWaymcVmJ-A" },
-  { id: 59, title: "Suavemente", artist: "Elvis Crespo", year: 1998, yt: "WPiEbYSF9kE" },
-  { id: 60, title: "Amor Prohibido", artist: "Selena", year: 1994, yt: "dvfZ95ueOcQ" },
-  { id: 61, title: "Gasolina", artist: "Daddy Yankee", year: 2004, yt: "CCF1_jI8Prk" }, // Audio 
-  { id: 62, title: "Danza Kuduro", artist: "Don Omar ft. Lucenzo", year: 2010, yt: "7zp1TbLFPp8" }, // Lyric
-  { id: 63, title: "Despacito", artist: "Luis Fonsi ft. Daddy Yankee", year: 2017, yt: "kJQP7kiw5Fk" }, // Audio
-  { id: 64, title: "Mi Gente", artist: "J Balvin", year: 2017, yt: "wnJ6LuUFpMo" }, // Audio
-  { id: 65, title: "Hawái", artist: "Maluma", year: 2020, yt: "pK060iUFWXg" }, // Lyric
-  { id: 66, title: "BICHOTA", artist: "Karol G", year: 2020, yt: "QaXhVryxVBk" }, // Lyric
-  { id: 67, title: "Tusa", artist: "Karol G ft. Nicki Minaj", year: 2019, yt: "tbneQDc2H3I" }, 
-  { id: 68, title: "Con Calma", artist: "Daddy Yankee ft. Snow", year: 2019, yt: "DiItGE3eAyQ" }, 
-  { id: 69, title: "Yonaguni", artist: "Bad Bunny", year: 2021, yt: "doLMt10ytHY" }, 
-  { id: 70, title: "Pepas", artist: "Farruko", year: 2021, yt: "y8trd3gjJt0" }, 
-  { id: 71, title: "Me Porto Bonito", artist: "Bad Bunny ft. Chencho", year: 2022, yt: "saGYMhApaH8" }, 
-  { id: 72, title: "Ojitos Lindos", artist: "Bad Bunny", year: 2022, yt: "wAjHQXrIj9o" }, 
-  { id: 73, title: "Provenza", artist: "Karol G", year: 2022, yt: "ca48oMV59LU" }, 
-  { id: 74, title: "TQG", artist: "Karol G ft. Shakira", year: 2023, yt: "jZGpkLElSu8" }, 
-  { id: 75, title: "X (Equis)", artist: "Nicky Jam & J Balvin", year: 2018, yt: "_I_D_8Z4sJE" }, 
-  { id: 76, title: "Reggaetón Lento", artist: "CNCO", year: 2016, yt: "7jpqqBX-Myw" }, 
-  { id: 77, title: "Chantaje", artist: "Shakira ft. Maluma", year: 2016, yt: "6Mgqbai3fKo" }, 
-  { id: 78, title: "Felices los 4", artist: "Maluma", year: 2017, yt: "t_jHrUE5IOk" }, 
-  { id: 79, title: "Bailando", artist: "Enrique Iglesias", year: 2014, yt: "b8I-7Wk_Vbc" }, 
-  { id: 80, title: "El Perdón", artist: "Nicky Jam", year: 2015, yt: "1m7TF2nVV1c" }, 
-  { id: 81, title: "Waka Waka", artist: "Shakira", year: 2010, yt: "pRpeEdMmmQ0" },
-  { id: 82, title: "La Tortura", artist: "Shakira", year: 2005, yt: "Dsp_8Lm1eSk" },
-  { id: 83, title: "Hips Don't Lie", artist: "Shakira", year: 2006, yt: "DUT5rEU6pqM" },
-  { id: 84, title: "Vivir Mi Vida", artist: "Marc Anthony", year: 2013, yt: "YXnjy5YlDwk" },
-  { id: 85, title: "Calma", artist: "Pedro Capó", year: 2018, yt: "1_zgKRBrT0Y" },
-  { id: 86, title: "Robarte un Beso", artist: "Carlos Vives", year: 2017, yt: "Mtau4v6foHA" },
-  { id: 87, title: "Atrévete-te-te", artist: "Calle 13", year: 2005, yt: "vXtJkDHEAAc" },
-  { id: 88, title: "Dile", artist: "Don Omar", year: 2004, yt: "zODmu06pqvg" },
-  { id: 89, title: "Mayor Que Yo", artist: "Luny Tunes", year: 2005, yt: "dTlXIbgVuc0" },
-  { id: 90, title: "Rakata", artist: "Wisin & Yandel", year: 2005, yt: "uvIuAHsfNdc" },
-  { id: 91, title: "Pam Pam", artist: "Wisin & Yandel", year: 2006, yt: "ZoVCM5iUaL0" },
-  { id: 92, title: "Llueve Sobre Mojado", artist: "Fito Páez & Joaquín Sabina", year: 1996, yt: "Y1cTclxGE64" },
-  { id: 93, title: "Limón y Sal", artist: "Julieta Venegas", year: 2006, yt: "tIpzfs5tBJU" },
-  { id: 94, title: "Algo Está Cayendo Aquí", artist: "José Luis Reyes", year: 2007, yt: "slxWCex0heQ" },
-  { id: 95, title: "Color Esperanza", artist: "Diego Torres", year: 2001, yt: "Nb1VOQRs-Vs" },
-  { id: 96, title: "Mi Primer Millón", artist: "Bacilos", year: 2002, yt: "F5-oCyBQW8k" },
-  { id: 97, title: "Caraluna", artist: "Bacilos", year: 2002, yt: "-zgDXIi1uYw" },
-  { id: 98, title: "El Niágara en Bicicleta", artist: "Juan Luis Guerra", year: 1998, yt: "Ae6EQYHjN4M" },
-  { id: 99, title: "Las Avispas", artist: "Juan Luis Guerra", year: 2004, yt: "ihZQAh4jr4M" },
-  { id: 100, title: "Me Enamora", artist: "Juanes", year: 2007, yt: "voxgN3Dhjuo" },
+  { id: 1, title: "La Gota Fría", artist: "Carlos Vives", year: 1993, yt: "Nmb80HXWsFQ", alts: ["wsCxuHNr2OM", "5wfykUisY00", "2kYlNiEmk8Q"] }, // Topic
+  { id: 2, title: "El Preso", artist: "Fruko y sus Tesos", year: 1975, yt: "FN5oLBXiNvM", alts: ["hJ2W0a6pd8M", "2RiHPFfPZ9U", "dx-NG4Kx0KM"] }, // Topic
+  { id: 3, title: "Rebelión", artist: "Joe Arroyo", year: 1986, yt: "oWBf9hfW_4Y", alts: ["KNcaw0Ye69g", "AWpAJMf2h0I", "NxKLTtLKUug"] }, // Lyric
+  { id: 4, title: "La Pollera Colorá", artist: "Wilson Choperena", year: 1962, yt: "ePsvyjinsJg", alts: ["6Infx_o0Gx0", "HEJtvN_oTzM", "NcwQJqab-cM"] }, 
+  { id: 5, title: "Obsesión", artist: "Las Estrellas Vallenatas", year: 1995, yt: "kIb2WJeKTdg", alts: ["jdq2a8HwMMQ", "4WySebET0h0", "E7cupoQCBEQ"] },
+  { id: 6, title: "Sin Medir Distancias", artist: "Diomedes Díaz", year: 1986, yt: "lAITJiV8xbQ", alts: ["Mnv8CLE5fhI", "XxkJSJc0ceE", "djhNz-22uYs"] },
+  { id: 7, title: "Se Me Perdió La Cadenita", artist: "La Sonora Dinamita", year: 1978, yt: "nus7qV5q9bU", alts: ["EjZna5PFSNI", "ej8FHjNUrRw", "nlfVhFjSjcA"] },
+  { id: 8, title: "El Santo Cachón", artist: "Los Embajadores Vallenatos", year: 1994, yt: "O8axbKX1JVo", alts: ["mNillj9kU0E", "DeWs676omAM", "MFhPo9bgXB8"] },
+  { id: 9, title: "Carmen de Bolívar", artist: "Lucho Bermúdez", year: 1952, yt: "qF7BYTnYPZA", alts: ["Y4CiR-tTSNM", "JAewtMu2O4I", "xFNdtRYmtIY"] },
+  { id: 10, title: "En Barranquilla Me Quedo", artist: "Joe Arroyo", year: 1988, yt: "j8ElCh65bzk", alts: ["lp4B62zSDxc", "vlN6Dy-phtY", "ZGjt_dXh1Lo"] },
+  { id: 11, title: "Tarde Lo Conocí", artist: "Patricia Teherán", year: 1994, yt: "1Qa9_RkUglY", alts: ["qB7RHM_xNcM", "4Cu2BiELlQ8", "ZK5vbL2V6-0"] },
+  { id: 12, title: "Oye", artist: "La Sonora Dinamita", year: 1992, yt: "RYDtOs5jqPU", alts: ["C79hLRXsajY", "ZDvP5yfMmFE", "qfRHTLGqWTw"] },
+  { id: 13, title: "Mi Niña Bonita", artist: "Binomio de Oro", year: 1993, yt: "DR6ED6lvkb4", alts: ["qUA6dhh2DqY", "Fa36CaBfONo", "mdnJk_QpvJ0"] },
+  { id: 14, title: "Las Caleñas Son Como Las Flores", artist: "The Latin Brothers", year: 1974, yt: "4XctaL5aHPg", alts: ["og7AUouppxA", "UUTmDZX2aZg", "m66b6jLrJCo"] },
+  { id: 15, title: "Los Caminos de la Vida", artist: "Los Diablitos", year: 1992, yt: "I-cOD2x-qBs", alts: ["JuwP-EfvL8k", "Kk4FUV9fsEU", "txRRPxHSpn8"] },
+  { id: 16, title: "Bohemian Rhapsody", artist: "Queen", year: 1975, yt: "fJ9rUzIMcZQ", alts: ["5zLnaNY58j8", "9sy81y0Unno", "vbvyNnw8Qjg"] },
+  { id: 17, title: "Billie Jean", artist: "Michael Jackson", year: 1982, yt: "Zi_XLOBDo_Y", alts: ["QRidtXn0u7k", "Kr4EQDVETuA", "kM5ywtImaSs"] },
+  { id: 18, title: "Smells Like Teen Spirit", artist: "Nirvana", year: 1991, yt: "hTWKbfoikeg", alts: ["69Wqhhun5_o", "lMdvpJpaolE", "R3XIGon2RjY"] },
+  { id: 19, title: "Hey Jude", artist: "The Beatles", year: 1968, yt: "A_MjCqQoLLA", alts: ["E5nFPKQ1d4I", "mQER0A0ej0M", "uNv_Bu_L6C8"] },
+  { id: 20, title: "Like a Rolling Stone", artist: "Bob Dylan", year: 1965, yt: "IwOfCgkyEj0", alts: ["lhPZ8bSnRq8", "a6Kv0vF41Bc", "oXUTsWy4XSo"] },
+  { id: 21, title: "I Will Always Love You", artist: "Whitney Houston", year: 1992, yt: "3JWTaaS7LdU", alts: ["-aZXKvm32JI", "8kotNQ07ZEw", "mK4hweZRU0k"] },
+  { id: 22, title: "Hotel California", artist: "Eagles", year: 1976, yt: "dLl4PZtxia8", alts: ["FlxE6jROiGI", "x2yd-XZtkvk", "CZAjxNW_GdY"] },
+  { id: 23, title: "Rolling in the Deep", artist: "Adele", year: 2010, yt: "rYEDA3JcQqw", alts: ["bDtjO-R0QSo", "1CigMPtm4FM", "AIYpdjQVidc"] },
+  { id: 24, title: "Imagine", artist: "John Lennon", year: 1971, yt: "Ts0XSyWpMnU", alts: ["bNnFFKv_NyI", "VOgFZfRVaww", "q0VztagtLCk"] },
+  { id: 25, title: "Sweet Child O' Mine", artist: "Guns N' Roses", year: 1987, yt: "1w7OgIMMRc4", alts: ["qoflJn7zkFM", "TBxAAOOJzL8", "D2gWc5Sw75w"] },
+  { id: 26, title: "Shape of You", artist: "Ed Sheeran", year: 2017, yt: "JGwWNGJdvx8", alts: ["erd3fTm-2t8", "nQrwTHTfhto", "_dK2tDK9grQ"] },
+  { id: 27, title: "Blinding Lights", artist: "The Weeknd", year: 2019, yt: "4NRXx6U8ABQ", alts: ["fHI8X4OXluQ", "XwxLwG2_Sxk", "ewfdRy5jfF8"] },
+  { id: 28, title: "Superstition", artist: "Stevie Wonder", year: 1972, yt: "0CFuCYNx-1g", alts: ["2PJ__4Nzzkk", "ftdZ363R9kQ", "aNAPi_KwDPE"] },
+  { id: 29, title: "Uptown Funk", artist: "Mark Ronson ft. Bruno Mars", year: 2014, yt: "OPf0YbXqDm0", alts: ["W8FUmkw3a4U", "7Ya2U8XN_Zw", "5JtL8b2t1EQ"] },
+  { id: 30, title: "Wonderwall", artist: "Oasis", year: 1995, yt: "bx1Bh8ZvH84", alts: ["NbSzTi0d6pQ", "kK_7nsWyR1k", "FVdjZYfDuLE"] },
+  { id: 31, title: "Thriller", artist: "Michael Jackson", year: 1982, yt: "sOnqjkJTMaA", alts: ["vAN-Ajsh1zA", "4V90AmXnguw", "sO4vI8P88NM"] },
+  { id: 32, title: "Let It Be", artist: "The Beatles", year: 1970, yt: "CGj85pVzRJs", alts: ["5AnNkJ_VK9E", "EaKKflhZMpc", "e0jYh-uhNvg"] },
+  { id: 33, title: "Stayin' Alive", artist: "Bee Gees", year: 1977, yt: "fNFzfwLM72c", alts: ["WlgoUlOkyzU", "UpmKn2FH9vI", "pMvHuxjFoNo"] },
+  { id: 34, title: "Don't Stop Believin'", artist: "Journey", year: 1981, yt: "1k8craCGpgs", alts: ["Pze8Dyqiky8", "Dtx2JfFbUSc", "VcjzHMhBtf0"] },
+  { id: 35, title: "Take On Me", artist: "a-ha", year: 1985, yt: "djV11Xbc914", alts: ["kmDBDn8Ju6w", "-iKeUC5_Wyw", "QchhC4yhdhc"] },
+  { id: 36, title: "Persiana Americana", artist: "Soda Stereo", year: 1986, yt: "LalPz4lIZYk", alts: ["uQMcf5qh9D8", "7ZdLVrui8tM", "Z3L5M7GHAkw"] }, // Topic
+  { id: 37, title: "De Música Ligera", artist: "Soda Stereo", year: 1990, yt: "T_FkEw27XJ0", alts: ["VwTQ6Mt2kt4", "iYlvtcjnpZk", "tXNR2LMzDiE"] }, // Topic
+  { id: 38, title: "La Flaca", artist: "Jarabe de Palo", year: 1996, yt: "r2g0pM3PMNQ", alts: ["TolvMT1tm9w", "fPZyikmE-ow", "Xkxkm_GV6Cg"] }, // Topic
+  { id: 39, title: "Lamento Boliviano", artist: "Enanitos Verdes", year: 1994, yt: "QwLJ7zZgeek", alts: ["zIW8uHgaghQ", "hReAuaAuJOE", "9eW5zIOCjOw"] }, // Topic
+  { id: 40, title: "Rayando el Sol", artist: "Maná", year: 1992, yt: "8lbsQyMhMT8", alts: ["FnxWAhvhSEw", "bE3ABNHDnAc", "kEh02EYKAc4"] }, // Topic
+  { id: 41, title: "Vivir Sin Aire", artist: "Maná", year: 1992, yt: "g3uxeG1rrlE", alts: ["GVd0C4duKL8", "86Ki1SMNLGs", "W2fTh8vAtuA"] }, // Topic
+  { id: 42, title: "A Dios Le Pido", artist: "Juanes", year: 2002, yt: "kMIaYXxLnUA", alts: ["JNrtvwB4A_s", "N3dnDBm29w8", "z8EHmLwgwLE"] }, // Lyric
+  { id: 43, title: "La Camisa Negra", artist: "Juanes", year: 2004, yt: "kRt2sRyup6A", alts: ["cnRk6PFlgCg", "KVLHUXyzobM", "c73A4LU1BGU"] },
+  { id: 44, title: "Oye Mi Amor", artist: "Maná", year: 1992, yt: "h0p8yTqj8i4", alts: ["iSb7L8mkgfw", "OhXeBoTlCr4", "Se3iEHVLpZM"] }, // Topic
+  { id: 45, title: "Tren Al Sur", artist: "Los Prisioneros", year: 1990, yt: "WRcCBI5rFfM", alts: ["eDipH-myZWE", "hIEA9-QRcCE", "12gUX0jOiA8"] },
+  { id: 46, title: "Mil Horas", artist: "Los Abuelos de la Nada", year: 1983, yt: "1To_Wz5RWi0", alts: ["5IR5CdvBQPY", "6viFf207jPo", "PH1-UFFxkXY"] },
+  { id: 47, title: "Mariposa Traicionera", artist: "Maná", year: 2002, yt: "av3wkasS-WQ", alts: ["O3dDauccZ_U", "FT8HG4EOn9o", "pKNIRQlY9a8"] },
+  { id: 48, title: "Matador", artist: "Los Fabulosos Cadillacs", year: 1993, yt: "pjPA7CXutDw", alts: ["I3Ybiq-SUYw", "EZ776IZiS_Q", "3__HmlJIyIU"] },
+  { id: 49, title: "En La Ciudad De La Furia", artist: "Soda Stereo", year: 1988, yt: "VoGwvVoaoCw", alts: ["_GZiCe00zVY", "AVEDgT_lG60", "vo7jBHB66q4"] },
+  { id: 50, title: "Eres", artist: "Café Tacvba", year: 2003, yt: "98Akpf1ph2o", alts: ["EGYwQSsW0wE", "2bgpYddTD6Q", "PlA9o1rw-rY"] },
+  { id: 51, title: "Oye Como Va", artist: "Santana", year: 1970, yt: "J7ATTjg7tpE", alts: ["nwwg_pPVZnM", "ALWqBH_U6TQ", "9QhchQD_w0M"] }, 
+  { id: 52, title: "Burbujas de Amor", artist: "Juan Luis Guerra", year: 1990, yt: "v0ckuv1xBm0", alts: ["sruVq3ZrmPc", "G8226sSN18g", "PWGwF_B0bxk"] }, // Topic
+  { id: 53, title: "Pedro Navaja", artist: "Rubén Blades", year: 1978, yt: "0hcoNykaI3k", alts: ["UibAE_x6NM8", "xe4jSbcKiUQ", "TqCC-zWQfdI"] }, 
+  { id: 54, title: "La Incondicional", artist: "Luis Miguel", year: 1989, yt: "wOjzo02Tmck", alts: ["pp_w9uLu-zg", "bFyNwlwMMfE", "Ez57Efv2S7E"] }, // Lyric
+  { id: 55, title: "El Rey", artist: "Vicente Fernández", year: 1971, yt: "zhHrefOdlLs", alts: ["hHhfSP5wHs4", "i6CBH_jDkD8", "U6qMQnNst9U"] },
+  { id: 56, title: "Cielito Lindo", artist: "Pedro Infante", year: 1952, yt: "U5RC3BJ2PMo", alts: ["sPK1BEgQJW8", "41xqsorstKQ", "pjavzC9PXWc"] },
+  { id: 57, title: "Querida", artist: "Juan Gabriel", year: 1984, yt: "AQOJ4qF0alk", alts: ["mmt4EO3oXSI", "Ix7N60uIQh8", "XcTkOFsoMI8"] },
+  { id: 58, title: "Macarena", artist: "Los del Río", year: 1993, yt: "zWaymcVmJ-A", alts: ["2zvd1JQ0EKY", "feqwA-vN3Qs", "UoUmyY6CQRo"] },
+  { id: 59, title: "Suavemente", artist: "Elvis Crespo", year: 1998, yt: "WPiEbYSF9kE", alts: ["_T_SIDKGRjs", "giXIGol4hGE", "MQmkvzYJM7U"] },
+  { id: 60, title: "Amor Prohibido", artist: "Selena", year: 1994, yt: "dvfZ95ueOcQ", alts: ["L-HTDNeK_ws", "dGj2D3TpN9I", "sADUuDB2MzI"] },
+  { id: 61, title: "Gasolina", artist: "Daddy Yankee", year: 2004, yt: "CCF1_jI8Prk", alts: ["GJP9ZTsgxJs", "2CiHQpN58Mo", "8ooXAlupI0U"] }, // Audio 
+  { id: 62, title: "Danza Kuduro", artist: "Don Omar ft. Lucenzo", year: 2010, yt: "7zp1TbLFPp8", alts: ["ZESyq7kvjeE", "oyFobb9_dlg", "jULlUasuxQk"] }, // Lyric
+  { id: 63, title: "Despacito", artist: "Luis Fonsi ft. Daddy Yankee", year: 2017, yt: "kJQP7kiw5Fk", alts: ["gm3-m2CFVWM", "TfkP5ubz1z4", "EY40HO8Flpc"] }, // Audio
+  { id: 64, title: "Mi Gente", artist: "J Balvin", year: 2017, yt: "wnJ6LuUFpMo", alts: ["xlXp9OFX8QM", "00v5Eiz1C5o", "i1eslpwXPd0"] }, // Audio
+  { id: 65, title: "Hawái", artist: "Maluma", year: 2020, yt: "pK060iUFWXg", alts: ["FWgkHIzS1b8", "BGsfeF4SNCg", "91vECNhvmMY"] }, // Lyric
+  { id: 66, title: "BICHOTA", artist: "Karol G", year: 2020, yt: "QaXhVryxVBk", alts: ["6pzZHroAaOs", "s2XOoEnmIOI", "eQMaLcweWq0"] }, // Lyric
+  { id: 67, title: "Tusa", artist: "Karol G ft. Nicki Minaj", year: 2019, yt: "tbneQDc2H3I", alts: ["VVvB2CjzkJ4", "T31w0KVrP0c", "BlO44DNKC7s"] }, 
+  { id: 68, title: "Con Calma", artist: "Daddy Yankee ft. Snow", year: 2019, yt: "DiItGE3eAyQ", alts: ["bNTRIdraX8c", "lmCEZhb-z-Q", "-yg3mK5cZc8"] }, 
+  { id: 69, title: "Yonaguni", artist: "Bad Bunny", year: 2021, yt: "doLMt10ytHY", alts: ["3Kx4Dem9SQQ", "juH8_d4Dwrk", "jlK6y2i1tTo"] }, 
+  { id: 70, title: "Pepas", artist: "Farruko", year: 2021, yt: "y8trd3gjJt0", alts: ["acm6O4WwgBg", "kcYS_cUwr-8", "aKA9pGWmpWI"] }, 
+  { id: 71, title: "Me Porto Bonito", artist: "Bad Bunny ft. Chencho", year: 2022, yt: "saGYMhApaH8", alts: ["OblNX5rGJJM", "8qkVfgLzTB0", "Ak8vNaNfJWM"] }, 
+  { id: 72, title: "Ojitos Lindos", artist: "Bad Bunny", year: 2022, yt: "wAjHQXrIj9o", alts: ["mJfkCSTNLhY", "qYymWg2Y_as", "PAocvoUOJt8"] }, 
+  { id: 73, title: "Provenza", artist: "Karol G", year: 2022, yt: "ca48oMV59LU", alts: ["oSbX1yZ8gAI", "RYiEGbHx2YU", "yJDJ9eWx3ac"] }, 
+  { id: 74, title: "TQG", artist: "Karol G ft. Shakira", year: 2023, yt: "jZGpkLElSu8", alts: ["YwJAHTXQJjQ", "24o_iGVXlG0", "HmyvwL5xqbo"] }, 
+  { id: 75, title: "X (Equis)", artist: "Nicky Jam & J Balvin", year: 2018, yt: "_I_D_8Z4sJE", alts: ["VdBkAClDnaI", "SWPcuucoRe4", "h8r5rbUmBzs"] }, 
+  { id: 76, title: "Reggaetón Lento", artist: "CNCO", year: 2016, yt: "7jpqqBX-Myw", alts: ["ppiV9UnqRn4", "2xsDA0i7inw", "pcegVwL_EQk"] }, 
+  { id: 77, title: "Chantaje", artist: "Shakira ft. Maluma", year: 2016, yt: "6Mgqbai3fKo", alts: ["pMxJgBoosU0", "J76eQJP3UIQ", "B1K6QQLJq4U"] }, 
+  { id: 78, title: "Felices los 4", artist: "Maluma", year: 2017, yt: "t_jHrUE5IOk", alts: ["YG6_e_FkFNs", "7Ve7N4-3flA", "plC72i763Do"] }, 
+  { id: 79, title: "Bailando", artist: "Enrique Iglesias", year: 2014, yt: "b8I-7Wk_Vbc", alts: ["5Q7PIOEmB9w", "NUsoVlDFqZg", "rClsc05_eU0"] }, 
+  { id: 80, title: "El Perdón", artist: "Nicky Jam", year: 2015, yt: "1m7TF2nVV1c", alts: ["jDQZIp7AyO4", "uU_FFtbCcLc", "Qf1CknXJbAg"] }, 
+  { id: 81, title: "Waka Waka", artist: "Shakira", year: 2010, yt: "pRpeEdMmmQ0", alts: ["czWcyZRAMtk", "Ye2OMov9dQs", "Ntn1-SocNiY"] },
+  { id: 82, title: "La Tortura", artist: "Shakira", year: 2005, yt: "Dsp_8Lm1eSk", alts: ["dF6aI8gvg-k", "QXx5Yf2IhRY", "9bnQD2bSpuE"] },
+  { id: 83, title: "Hips Don't Lie", artist: "Shakira", year: 2006, yt: "DUT5rEU6pqM", alts: ["p3pEe6aAJ4k", "X8k1FVqtojU", "2Ndra-1Pwug"] },
+  { id: 84, title: "Vivir Mi Vida", artist: "Marc Anthony", year: 2013, yt: "YXnjy5YlDwk", alts: ["UJxtuIz3W1g", "kMNPv_HXffQ", "YZfaeViZ73w"] },
+  { id: 85, title: "Calma", artist: "Pedro Capó", year: 2018, yt: "1_zgKRBrT0Y", alts: ["CrFJXw5SIbo", "x0N2kRv4Vfs", "NCYXmD-wayk"] },
+  { id: 86, title: "Robarte un Beso", artist: "Carlos Vives", year: 2017, yt: "Mtau4v6foHA", alts: ["5b8yY0cTarw", "siQ5bdxHGg0", "Gp0LrU3ZX78"] },
+  { id: 87, title: "Atrévete-te-te", artist: "Calle 13", year: 2005, yt: "vXtJkDHEAAc", alts: ["ddzK7UPUhxE", "1U1Y4A4FKic", "Bako6OINTyk"] },
+  { id: 88, title: "Dile", artist: "Don Omar", year: 2004, yt: "zODmu06pqvg", alts: ["ht10VYM94_g", "tAJE0lkAfxc", "nnB21WVjow0"] },
+  { id: 89, title: "Mayor Que Yo", artist: "Luny Tunes", year: 2005, yt: "dTlXIbgVuc0", alts: ["tSamjnqHgIw", "9_WoVcPFwR0", "F-3BoAvuoY8"] },
+  { id: 90, title: "Rakata", artist: "Wisin & Yandel", year: 2005, yt: "uvIuAHsfNdc", alts: ["2KNcGxvpxaw", "sA09ZwW4H2U", "C3lXxoQPqoA"] },
+  { id: 91, title: "Pam Pam", artist: "Wisin & Yandel", year: 2006, yt: "ZoVCM5iUaL0", alts: ["Ttuiw_r04h4", "wPjU7nFjP5I", "vblbI0xW3Xk"] },
+  { id: 92, title: "Llueve Sobre Mojado", artist: "Fito Páez & Joaquín Sabina", year: 1996, yt: "Y1cTclxGE64", alts: ["lwGwldK85Zo", "2QDtLOhmdfQ", "brqJrzJhJUU"] },
+  { id: 93, title: "Limón y Sal", artist: "Julieta Venegas", year: 2006, yt: "tIpzfs5tBJU", alts: ["fopSgMkWEUk", "_gTsBdYntp4", "2eJQ9z9-8sM"] },
+  { id: 94, title: "Algo Está Cayendo Aquí", artist: "José Luis Reyes", year: 2007, yt: "slxWCex0heQ", alts: ["lANiURzyLRE", "DvMAelGfmG0", "WRcxb3GbvEs"] },
+  { id: 95, title: "Color Esperanza", artist: "Diego Torres", year: 2001, yt: "Nb1VOQRs-Vs", alts: ["abPk8SFK374", "6yYLqGDntlg", "VMi8kaVn0P8"] },
+  { id: 96, title: "Mi Primer Millón", artist: "Bacilos", year: 2002, yt: "F5-oCyBQW8k", alts: ["f-tZQZKsXO0", "JQhG_3wDMjk", "Z3AUyA0Q1bc"] },
+  { id: 97, title: "Caraluna", artist: "Bacilos", year: 2002, yt: "-zgDXIi1uYw", alts: ["D3JKXJpPhM0", "BAw4rftXeuk", "BmdxKtTkO7w"] },
+  { id: 98, title: "El Niágara en Bicicleta", artist: "Juan Luis Guerra", year: 1998, yt: "Ae6EQYHjN4M", alts: ["rxOwGiW6EhE", "8eCkUiR2axw", "QlUgaa8Eh5Q"] },
+  { id: 99, title: "Las Avispas", artist: "Juan Luis Guerra", year: 2004, yt: "ihZQAh4jr4M", alts: ["nfmdbKeSh7I", "lqDI8CHGEn0", "Z-MSki1BaQU"] },
+  { id: 100, title: "Me Enamora", artist: "Juanes", year: 2007, yt: "voxgN3Dhjuo", alts: ["IA-jf2zXb6Q", "yjB9TU8S8Fw", "mTQw-VmSsjk"] },
+
+  // === COLOMBIANAS (nuevas) ===
+  { id: 101, title: "Estoy Aquí", artist: "Shakira", year: 1995, yt: "pPOtQipclAg", alts: ["wkyl6YzAK-w", "hflUHjTwASE", "Ip1YN7AuRog"] }, // video (auto)
+  { id: 102, title: "Antología", artist: "Shakira", year: 1996, yt: "pWgVRK_Ggww", alts: ["MCH1tA-6JWs", "0Xf9CqtaNY8", "onlZQ0jKUZc"] }, // video (manual)
+  { id: 103, title: "Ciega, Sordomuda", artist: "Shakira", year: 1998, yt: "ngu2xMmRUAQ", alts: ["V7Z2yO6GLro", "rZ7FrKNrR-g", "RypogkCBb3k"] }, // video (auto)
+  { id: 104, title: "Inevitable", artist: "Shakira", year: 1998, yt: "fgvD663h9Os", alts: ["ilwnUEGda-c", "nYbcVK2jjXc", "2JXIwl6fmug"] }, // video (auto)
+  { id: 105, title: "Suerte", artist: "Shakira", year: 2001, yt: "qIobay7xoYM", alts: ["KKHnACTgQLw", "QkyxACDwGTA", "KcGPNBvG7fk"] }, // video (auto)
+  { id: 106, title: "La Tierra del Olvido", artist: "Carlos Vives", year: 1995, yt: "-QkmEVNA-fo", alts: ["8jtfXHadYIE", "s6OWi4_ISCo", "6exx0sB_iOA"] }, // video (auto)
+  { id: 107, title: "Pa' Mayté", artist: "Carlos Vives", year: 1995, yt: "ye71uzOEBDs", alts: ["29LXcABfogI", "-iXiUF6DSYg", "xzbYslQ_dSs"] }, // video (auto)
+  { id: 108, title: "Fruta Fresca", artist: "Carlos Vives", year: 1999, yt: "YSy30fW-k7w", alts: ["i2c4CHqZmxU", "u9MKCF3WzQg", "in8rFQZsagQ"] }, // video (auto)
+  { id: 109, title: "Volví a Nacer", artist: "Carlos Vives", year: 2012, yt: "is2k4j27mz4", alts: ["EYtOWu2XpDs", "yDe4U-jePmk", "EdUg5nMttLk"] }, // video (auto)
+  { id: 110, title: "La Bicicleta", artist: "Carlos Vives & Shakira", year: 2016, yt: "lzGA9ma3u9M", alts: ["pKAOVdnwCdU", "pD4H6ecTiG0", "bJHFcCWk4VI"] }, // video (auto)
+  { id: 111, title: "Te Mando Flores", artist: "Fonseca", year: 2005, yt: "uAjwRJBzvMg", alts: ["9oLBY9QqTAQ", "RDkeRUNtFQY", "e63F3bcqvww"] }, // video (auto)
+  { id: 112, title: "Bolero Falaz", artist: "Aterciopelados", year: 1995, yt: "CccceJ97izw", alts: ["AaCwhL_w-WM", "UH8NgDnJhdw", "sUlsTs2ljaE"] }, // video (auto)
+  { id: 113, title: "Florecita Rockera", artist: "Aterciopelados", year: 1994, yt: "3EpfaDU3yCU", alts: ["NPSOYJTrcHA", "_MB30bHR6Cs", "ARR3gkzX8I0"] }, // video (auto)
+  { id: 114, title: "De Dónde Vengo Yo", artist: "ChocQuibTown", year: 2009, yt: "g6eR-ay94XE", alts: ["6ebfOS1vKEM", "yMS4J6Gp6e4", "tZwRXVr0U78"] }, // video (auto)
+  { id: 115, title: "Soy Yo", artist: "Bomba Estéreo", year: 2016, yt: "oiNlK1KVSuU", alts: ["tWwWoDFoubw", "5Q2YCdSJtdk", "X1C2H26huWM"] }, // video (auto)
+  { id: 116, title: "To My Love", artist: "Bomba Estéreo", year: 2015, yt: "FWpHN9v8uu8", alts: ["Yg8t7oXYQps", "cSN8AxFEsrM", "NGWNQ5bNFHE"] }, // video (auto)
+  { id: 117, title: "Que Bonita Es Esta Vida", artist: "Jorge Celedón", year: 2005, yt: "q76quSd10JA", alts: ["tS34TijiFiM", "BudVsICXxF8", "k7Rw9ys8mkA"] }, // video (auto)
+  { id: 118, title: "Cásate Conmigo", artist: "Silvestre Dangond & Nicky Jam", year: 2016, yt: "17z3Y1YnRTs", alts: ["URhddWy8_sg", "iD4-fGJthOk", "y-iA6iN1cf4"] }, // video (auto)
+  { id: 119, title: "Ay Vamos", artist: "J Balvin", year: 2014, yt: "2kZ0v3Cx6Go", alts: ["t2mrJGmW1Ys", "R1369wPOJ78", "TapXs54Ah3E"] }, // Topic (auto)
+  { id: 120, title: "Ginza", artist: "J Balvin", year: 2015, yt: "jqjMu2NfiUI", alts: ["JSDB2PBtNvk", "m8JoSkGVsFA", "zZjSX01P5dE"] }, // video (auto)
+  { id: 121, title: "Tacones Rojos", artist: "Sebastián Yatra", year: 2021, yt: "BXd-NIVqfBc", alts: ["5pCbFvon3Rs", "Zs0O6OQ907c", "Qz9gmiLBVFA"] }, // video (auto)
+  { id: 122, title: "Vida de Rico", artist: "Camilo", year: 2020, yt: "Oj0Q8GNMSKk", alts: ["nxdbY_Q9CF4", "qKp1f7Vn9dM", "xCWYDYO88gw"] }, // video (auto)
+  { id: 123, title: "La Bachata", artist: "Manuel Turizo", year: 2022, yt: "2w_nFl_87Sw", alts: ["nEd7mXPQ688", "TiM_TFpT_DE", "D6Ju9CyOB-I"] }, // video (auto)
+  { id: 124, title: "Mamiii", artist: "Karol G & Becky G", year: 2022, yt: "vb8wloc4Xpw", alts: ["D7eU4No3t_o", "flL8ZMqIWGA", "MVahNtNP-_c"] }, // video (auto)
+  { id: 125, title: "Shakira: Bzrp Music Sessions Vol. 53", artist: "Shakira & Bizarrap", year: 2023, yt: "QPgEf0Tg6NM", alts: ["N11zzBlHFzA", "CocEMWdc7Ck", "Q1EA78JJKrI"] }, // video (auto)
+  { id: 126, title: "Normal", artist: "Feid", year: 2022, yt: "UcRnsy-gFl0", alts: ["FrHb6Xu8a84", "X1h4hRuB3ck", "oD5f55ohsc4"] }, // video (auto)
+  { id: 127, title: "China", artist: "Anuel AA, Daddy Yankee, Karol G, J Balvin & Ozuna", year: 2019, yt: "8a9djdVlzg8", alts: ["CWRd2s3-8cg", "-DstIZrfWbw", "p9IpJHEYApI"] }, // video (auto)
+  { id: 128, title: "Arroyito", artist: "Fonseca", year: 2011, yt: "2bPiaBjljAA", alts: ["NisSVWbqh9w", "ZXaTHgq2skw", "yEYge9yT-04"] }, // video (auto)
+
+  // === MEXICANAS (nuevas) ===
+  { id: 129, title: "Volver, Volver", artist: "Vicente Fernández", year: 1972, yt: "C81vXTYdNfM", alts: ["yPJG_4XEOnw", "NPg_jbGYzgA", "gZVKe_0n7tg"] }, // video (auto)
+  { id: 130, title: "Por Tu Maldito Amor", artist: "Vicente Fernández", year: 1989, yt: "oqeq_0OFKPM", alts: ["RCgZ8T0NR6o", "n2oIwhspA2U", "gfm2zSgQ8cQ"] }, // video (auto)
+  { id: 131, title: "Mujeres Divinas", artist: "Vicente Fernández", year: 1987, yt: "RtsoyijZVfw", alts: ["C2q7lB0NRBk", "t3uoUVi-QFE", "k37eCSneJKM"] }, // video (auto)
+  { id: 132, title: "Amor Eterno", artist: "Juan Gabriel", year: 1984, yt: "yYXTDK0Er4Q", alts: ["F7B9Nq01tKs", "RgKqxLAhRKE", "6lRGIF__l6o"] }, // video (auto)
+  { id: 133, title: "Hasta Que Te Conocí", artist: "Juan Gabriel", year: 1986, yt: "L4-5uWCcTWA", alts: ["7uw9vn6NBe8", "H20eBeYnioI", "GRJgfnNtee0"] }, // video (auto)
+  { id: 134, title: "No Tengo Dinero", artist: "Juan Gabriel", year: 1971, yt: "SSNSRcpuchw", alts: ["TnUbi9_Q-VY", "ePMe-OQwoag", "MvJlumX4vJE"] }, // video (auto)
+  { id: 135, title: "El Triste", artist: "José José", year: 1970, yt: "2UijpO1rGnA", alts: ["UedwurPJFN0", "b1cbgrcBrY0", "yh_uok6JDqA"] }, // video (auto)
+  { id: 136, title: "Gavilán o Paloma", artist: "José José", year: 1976, yt: "kdE8NHUc0s4", alts: ["CmNE2Yl_k64", "26wFvzcjqCA", "vDzO8jrDT08"] }, // video (auto)
+  { id: 137, title: "Ahora Te Puedes Marchar", artist: "Luis Miguel", year: 1987, yt: "1bn3NkMUjrU", alts: ["lSfGAnuVSNc", "iOwiRREwdl0", "yG7MPEQm1-w"] }, // video (auto)
+  { id: 138, title: "Por Debajo de la Mesa", artist: "Luis Miguel", year: 1997, yt: "nYntpR_y62w", alts: ["x1HUJ6TjgeA", "giAE7Yz7gHI", "mdeS7A0hqkw"] }, // video (auto)
+  { id: 139, title: "La Bikina", artist: "Luis Miguel", year: 2004, yt: "970nS5ZGcdw", alts: ["TRkwTw1u30M", "Atjknv2lr_c", "NCvJwzDQTBM"] }, // video (auto)
+  { id: 140, title: "Como Quien Pierde una Estrella", artist: "Alejandro Fernández", year: 1995, yt: "r5kfO00BYKs", alts: ["MXlwuZ_nEk0", "D5MTc_z2dqo", "z6_5jCIGAtI"] }, // video (auto)
+  { id: 141, title: "Clavado en un Bar", artist: "Maná", year: 1997, yt: "2sx3M3w5RXo", alts: ["fBrX8ym3dBM", "4uA3S_QI9HM", "8oKp6xqcinU"] }, // video (auto)
+  { id: 142, title: "Labios Compartidos", artist: "Maná", year: 2006, yt: "aRn2jWOrdcI", alts: ["zlptQzy02Kg", "1IgOZaQqB58", "vpDn5xYxqlE"] }, // video (auto)
+  { id: 143, title: "En el Muelle de San Blas", artist: "Maná", year: 1997, yt: "Wp1iGFhdAlg", alts: ["mfBGQykDKuQ", "TqBMBK04wno", "4pha2USCE50"] }, // video (auto)
+  { id: 144, title: "Corazón Espinado", artist: "Santana & Maná", year: 1999, yt: "Smv6aTMFIMo", alts: ["8vY4nVA54Lw", "vy2oEA5bhvU", "9mZ_QcQRMWM"] }, // video (auto)
+  { id: 145, title: "La Ingrata", artist: "Café Tacvba", year: 1994, yt: "FtvITh7BWNg", alts: ["1FR_4eWwo-A", "kIr8hsVTCzg", "FcqmWO9e-Ow"] }, // video (auto)
+  { id: 146, title: "Chilanga Banda", artist: "Café Tacvba", year: 1996, yt: "ykamwnho4bg", alts: ["bKjn26agAEs", "eV_fsDWKtbs", "GchtgU3MsGU"] }, // video (auto)
+  { id: 147, title: "La Negra Tomasa", artist: "Caifanes", year: 1989, yt: "CeyFyCqCQiU", alts: ["sOaMiCDqGH0", "_EB38Ymgrho", "riF3Nfb7IZk"] }, // video (auto)
+  { id: 148, title: "Afuera", artist: "Caifanes", year: 1994, yt: "gBt1jOtKz6Y", alts: ["DNbG5IIA71w", "K9NO5UY76jc", "paVe4XfOhQI"] }, // video (auto)
+  { id: 149, title: "Gimme Tha Power", artist: "Molotov", year: 1997, yt: "pdOZi_nVTb8", alts: ["X_r8O1JhzWA", "ueGgL_hXRgs", "mDOIv-I58AQ"] }, // video (auto)
+  { id: 150, title: "Andar Conmigo", artist: "Julieta Venegas", year: 2003, yt: "AzA4Rjz0IwU", alts: ["7hgwPdW9vbA", "DNFeB_6WeIo", "wtpTCWF2fjk"] }, // video (auto)
+  { id: 151, title: "Me Voy", artist: "Julieta Venegas", year: 2006, yt: "puDMPx5UxSA", alts: ["Yt0kUI4ZtnI", "y8rBC6GCUjg", "SjQq7mLNgUs"] }, // video (auto)
+  { id: 152, title: "Hasta la Raíz", artist: "Natalia Lafourcade", year: 2015, yt: "iHSnLRrEC10", alts: ["Zx8wsNVE9fc", "zqEgNjMITWQ", "IKmPci5VXz0"] }, // video (auto)
+  { id: 153, title: "Amor a la Mexicana", artist: "Thalía", year: 1997, yt: "vHxI_Gdoemw", alts: ["Gd7bt3VAbPo", "39kMo2cddgQ", "y0TcF4ZOrIQ"] }, // video (auto)
+  { id: 154, title: "Como la Flor", artist: "Selena", year: 1992, yt: "0qBSjAR1HyI", alts: ["X93twYHEZXs", "FwZTgDjRLM0", "JsUt2jsLM1k"] }, // video (auto)
+  { id: 155, title: "Bidi Bidi Bom Bom", artist: "Selena", year: 1994, yt: "UjkoGKgx27g", alts: ["equNmHoBoRI", "RKGbjJarMeA", "qPkNVMtMXyc"] }, // video (auto)
+  { id: 156, title: "Adiós Amor", artist: "Christian Nodal", year: 2017, yt: "0XkoO6oOy2g", alts: ["--Iywp332ao", "AKb0bc6jcZE", "ETLoTxVVvjM"] }, // video (auto)
+  { id: 157, title: "Ella Baila Sola", artist: "Eslabón Armado & Peso Pluma", year: 2023, yt: "QM-q2F1a9g4", alts: ["lSrLb_rERdI", "H3VSYxUu4P0", "LMee4Mf_yYI"] }, // video (auto)
+  { id: 158, title: "Nunca Es Suficiente", artist: "Los Ángeles Azules & Natalia Lafourcade", year: 2018, yt: "5vLN8OmEIUY", alts: ["PpFk34GDqqc", "k76BgIb89-s", "rJAZtuQqerE"] }, // video (auto)
+  { id: 159, title: "Cómo Te Voy a Olvidar", artist: "Los Ángeles Azules", year: 1996, yt: "bAniqpNv8Kw", alts: ["Nl3Jq_joQdg", "nxXvOEPsE0s", "rXyeKotBFj0"] }, // video (auto)
+  { id: 160, title: "Rata de Dos Patas", artist: "Paquita la del Barrio", year: 1997, yt: "F_H_jwNxpVM", alts: ["qG_UVz_Vqf0", "VuyvT9inAf8", "ld9wCxrbn3w"] }, // video (auto)
+
+  // === ARGENTINAS (nuevas) ===
+  { id: 161, title: "Cuando Pase el Temblor", artist: "Soda Stereo", year: 1985, yt: "UEchfRz0D8Q", alts: ["mCOmgGjAHCQ", "Uc_WEcVuScI", "PrkrQL7K7cE"] }, // video (auto)
+  { id: 162, title: "Crimen", artist: "Gustavo Cerati", year: 2006, yt: "PAmWdwJVQQY", alts: ["Is1e50aVs1k", "uLIs0j2WnlM", "GIJaIMTzsqI"] }, // video (auto)
+  { id: 163, title: "Puente", artist: "Gustavo Cerati", year: 1999, yt: "87KzIMaSORg", alts: ["UrHDUKMI5DI", "eAO7CEcCD3s", "LTIIM_g-HtQ"] }, // video (auto)
+  { id: 164, title: "Demoliendo Hoteles", artist: "Charly García", year: 1984, yt: "DeMCz0O7-FM", alts: ["YR-quzVi74I", "Mm3IgrVsu24", "djT_I6mxcHQ"] }, // video (auto)
+  { id: 165, title: "Los Dinosaurios", artist: "Charly García", year: 1983, yt: "BAuqozi64WQ", alts: ["EIDyMNqlSzQ", "0zKf7mIPEXg", "f_Ews6kRcn0"] }, // video (auto)
+  { id: 166, title: "El Amor Después del Amor", artist: "Fito Páez", year: 1992, yt: "JbMbfA94mrk", alts: ["XS5I0exmh4Y", "PgEYmNmMFEQ", "9IuJ0Y3IWpk"] }, // video (auto)
+  { id: 167, title: "11 y 6", artist: "Fito Páez", year: 1985, yt: "JXzSU38zpho", alts: ["WTi7X59VpWQ", "j6pCHLfo0KI", "ZweylZ8uiuw"] }, // video (auto)
+  { id: 168, title: "Flaca", artist: "Andrés Calamaro", year: 1997, yt: "0bMNt2Ru8Ig", alts: ["G3cAjuILWuk", "UCF9oHXhDMU", "zfAEkjNtPho"] }, // video (auto)
+  { id: 169, title: "Loco", artist: "Andrés Calamaro", year: 1997, yt: "FqDgBHumFwc", alts: ["HHyQS9lN4cY", "D8GP_LsGKcM", "IypwbyaxCmM"] }, // video (auto)
+  { id: 170, title: "Vasos Vacíos", artist: "Los Fabulosos Cadillacs & Celia Cruz", year: 1993, yt: "DDx9RsfphxE", alts: ["8Zdhan166z0", "GltHolJYjjE", "gP5vhIhgLCI"] }, // video (auto)
+  { id: 171, title: "La Rubia Tarada", artist: "Sumo", year: 1987, yt: "nWvA8ThFH8M", alts: ["QuaGBNkdTso", "FyimMls_08k", "8--ypif-fXA"] }, // video (auto)
+  { id: 172, title: "Ji Ji Ji", artist: "Patricio Rey y sus Redonditos de Ricota", year: 1986, yt: "CnJqYsSOgfg", alts: ["QcGj2r5-e28", "3FCfMC2vq_c", "tVvTDVswTxQ"] }, // video (auto)
+  { id: 173, title: "Loco (Tu Forma de Ser)", artist: "Los Auténticos Decadentes", year: 1989, yt: "fgXDHQm5eq4", alts: ["aAZb5Y1EkoQ", "Chj9k-peGhE", "AFwpWzOpfjQ"] }, // video (auto)
+  { id: 174, title: "Don", artist: "Miranda!", year: 2007, yt: "uhxmaLXE40w", alts: ["L4TtYE04bxs", "6Hg65Hu7VIo", "oaS0GNtuhSk"] }, // video (auto)
+  { id: 175, title: "La Melodía", artist: "Tan Biónica", year: 2010, yt: "_8LHnLFwrtA", alts: ["txZw4iMtgJo", "2_5D5Mngrfw", "wuFdd_rq1BE"] }, // video (auto)
+  { id: 176, title: "Muchacha (Ojos de Papel)", artist: "Almendra", year: 1969, yt: "33bSMJF-SfE", alts: ["0gd_WvThfIY", "lP7_qMRIXTg", "5wscEdlj5qM"] }, // video (auto)
+  { id: 177, title: "Sólo le Pido a Dios", artist: "León Gieco", year: 1978, yt: "TfXfSgrix0E", alts: ["JqRiD6Phm2U", "TXOUpXKn1NM", "UdEIMVbGUI4"] }, // video (auto)
+  { id: 178, title: "Gracias a la Vida", artist: "Mercedes Sosa", year: 1971, yt: "xXO-4EQMSAs", alts: ["cIrGQD84F1g", "lDFuHhflHsw", "rMuTXcf3-6A"] }, // video (auto)
+  { id: 179, title: "No Me Arrepiento de Este Amor", artist: "Gilda", year: 1995, yt: "8iUkmnLc1ec", alts: ["T2qBHyC5mmU", "dl0gOqP-A3s", "pw4EXhVHKQ8"] }, // video (manual)
+  { id: 180, title: "La Mano de Dios", artist: "Rodrigo", year: 2000, yt: "Or7E-L8ivZ0", alts: ["EAk-l1VHzBw", "vmVtgmgLPzw", "FLAUI6pSFSs"] }, // video (auto)
+  { id: 181, title: "Wadu Wadu", artist: "Virus", year: 1981, yt: "kG27hi_Rk9o", alts: ["iBCD4tsbHeE", "vx8wBYDQUWk", "IEnsLSG63aM"] }, // video (auto)
+  { id: 182, title: "La Bolsa", artist: "Bersuit Vergarabat", year: 1998, yt: "MBCZ4JvDTTk", alts: ["cD14flqCTVM", "rxjXdU6Kgs0", "UY_Rzhy8P_w"] }, // video (auto)
+  { id: 183, title: "Tan Solo", artist: "Los Piojos", year: 1996, yt: "uv1urNGwtOc", alts: ["v9GkZlWTzJU", "EjhCfwpLcUA", "8TdbQUBo8iQ"] }, // video (auto)
+  { id: 184, title: "Seminare", artist: "Serú Girán", year: 1982, yt: "FohVK9ratG0", alts: ["8Djn8yRscS8", "xVdtGR_zgdA", "JlV1pg7Wk_o"] }, // video (auto)
+  { id: 185, title: "El Anillo del Capitán Beto", artist: "Invisible", year: 1976, yt: "xrxjTWhLQUs", alts: ["dQUxNU534dA", "BOYIwuwVwKE", "qZZrtIBMaxA"] }, // video (auto)
+  { id: 186, title: "Irresponsables", artist: "Babasónicos", year: 2001, yt: "gZV2Q9zH2eg", alts: ["9mzv9R_Dq7M", "6FJsgtprZnU", "eXkA1Cjr7cU"] }, // video (manual)
+  { id: 187, title: "Runaway", artist: "Los Pericos", year: 2000, yt: "O2dfgfSJXWA", alts: ["9jYDZNn-4XU", "KoxlzZlILzI", "cUCls4kHAng"] }, // video (auto)
+  { id: 188, title: "Costumbres Argentinas", artist: "Los Abuelos de la Nada", year: 1985, yt: "J0xdIDXd2Tw", alts: ["wMYIcWg-X7Q", "_wb83kOA3FI", "-2XfYJM3Wqw"] }, // video (auto)
+
+  // === NORTEAMERICANAS (nuevas) ===
+  { id: 189, title: "Africa", artist: "Toto", year: 1982, yt: "Kb7lAMjFuA0", alts: ["U1LB_OerHCE", "FTQbiNvZqaY", "Vya1ArQ8BYU"] }, // video (auto)
+  { id: 190, title: "Every Breath You Take", artist: "The Police", year: 1983, yt: "FXozwCdSLb0", alts: ["KUcFIObp0hA", "OMOGaugKpzs", "6cucosmPj-A"] }, // video (auto)
+  { id: 191, title: "Like a Prayer", artist: "Madonna", year: 1989, yt: "lPy9Jmfxe18", alts: ["JaB-JUaeVpA", "79fzeNUqQbQ", "PCrnwywJrKg"] }, // video (auto)
+  { id: 192, title: "Purple Rain", artist: "Prince", year: 1984, yt: "OOM6TiWJdps", alts: ["TvnYmWpD_T8", "bm03wqLY3Nc", "iSBVeZrDfGY"] }, // video (auto)
+  { id: 193, title: "Livin' on a Prayer", artist: "Bon Jovi", year: 1986, yt: "Lvro-vIY-Gw", alts: ["ohFtQIPqGSo", "lDK9QqIzhwk", "2ognf_oRQWM"] }, // video (auto)
+  { id: 194, title: "Nothing Else Matters", artist: "Metallica", year: 1991, yt: "Fkj6-LN6WKI", alts: ["tAGnKpE4NCI", "ozXZnwYTMbs", "Lli99OmkPwM"] }, // video (auto)
+  { id: 195, title: "Zombie", artist: "The Cranberries", year: 1994, yt: "ndW8N7La66I", alts: ["dogbEGObrmw", "k0BDaIFQ_7A", "6Ejga4kJUts"] }, // video (auto)
+  { id: 196, title: "...Baby One More Time", artist: "Britney Spears", year: 1998, yt: "hitIxB22QcI", alts: ["nbmVTIYkbOo", "C-u5WLJ9Yk4", "PYpU2TxIzAM"] }, // video (auto)
+  { id: 197, title: "Bad Romance", artist: "Lady Gaga", year: 2009, yt: "9WNYIA1N4NU", alts: ["9jugA646xjk", "qrO4YZeyl0I", "_5-QkAVRkqU"] }, // video (auto)
+  { id: 198, title: "Someone Like You", artist: "Adele", year: 2011, yt: "22c3_LoIfZQ", alts: ["z7GCiVTlv04", "raiQjmyZMC0", "hLQl3WQQoQ0"] }, // Topic (auto)
+  { id: 199, title: "Bad Guy", artist: "Billie Eilish", year: 2019, yt: "YD4utuFiexw", alts: ["vlxGlUvC604", "4-TbQnONe_w", "DyDfgMOUjCI"] }, // video (auto)
+  { id: 200, title: "Flowers", artist: "Miley Cyrus", year: 2023, yt: "SWpAYbgHmTo", alts: ["fQemUin8g-I", "7V3jqsIe8c0", "G7KNmW9a75Y"] }, // video (auto)
 ];
 
 

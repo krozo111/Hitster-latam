@@ -1,14 +1,12 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import type { GameState } from '../lib/types';
 import {
-  initFirebase,
   createRoom,
   getRoomState,
   subscribeToRoom,
   setRoomState,
-  updateRoomState,
   generateRoomCode,
-} from '../lib/firebase';
+} from '../lib/supabase';
 import {
   createInitialState,
   addPlayerToState,
@@ -16,6 +14,7 @@ import {
   drawNextCard,
   placeCard,
 } from '../lib/gameLogic';
+import { saveSession, loadSession, clearSession } from '../lib/session';
 import Landing from './Landing.tsx';
 import Lobby from './Lobby.tsx';
 import GameBoard from './GameBoard.tsx';
@@ -31,16 +30,10 @@ export default function App() {
   const [showResult, setShowResult] = useState(false);
   const [isHost, setIsHost] = useState(false);
   const [isSolo, setIsSolo] = useState(false);
+  const [restoring, setRestoring] = useState(true);
+  const [showExitConfirm, setShowExitConfirm] = useState(false);
   const unsubRef = useRef<(() => void) | null>(null);
 
-  // Initialize Firebase on mount
-  useEffect(() => {
-    try {
-      initFirebase();
-    } catch (e) {
-      setError('Error al conectar con Firebase. Verifica tu configuración.');
-    }
-  }, []);
 
   // Subscribe to room state changes
   const subscribeRoom = useCallback((id: string) => {
@@ -48,16 +41,65 @@ export default function App() {
 
     const unsub = subscribeToRoom(id, (state) => {
       setGameState(state);
-
-      if (state.phase === 'playing' && screen !== 'game') {
-        setScreen('game');
-      }
-      if (state.phase === 'finished') {
-        // Handle game over
-      }
+      if (state.phase === 'playing') setScreen('game');
     });
     unsubRef.current = unsub;
-  }, [screen]);
+  }, []);
+
+  // Restore a saved session on reload (so an accidental refresh doesn't
+  // kick the player out of their game).
+  useEffect(() => {
+    const saved = loadSession();
+    if (!saved) {
+      setRestoring(false);
+      return;
+    }
+
+    // Solo: the whole game state is stored locally
+    if (saved.isSolo && saved.soloState) {
+      setIsSolo(true);
+      setIsHost(true);
+      setMyPlayerIndex(0);
+      setRoomId('SOLO');
+      setGameState(saved.soloState);
+      setScreen('game');
+      setRestoring(false);
+      return;
+    }
+
+    // Multiplayer: re-fetch the live room state from Supabase
+    if (!saved.isSolo && saved.roomId) {
+      getRoomState(saved.roomId)
+        .then((state) => {
+          if (!state) {
+            clearSession(); // room no longer exists
+          } else {
+            setRoomId(saved.roomId);
+            setMyPlayerIndex(saved.myPlayerIndex);
+            setIsHost(saved.isHost);
+            setIsSolo(false);
+            setGameState(state);
+            subscribeRoom(saved.roomId);
+            setScreen(state.phase === 'lobby' ? 'lobby' : 'game');
+          }
+        })
+        .catch(() => clearSession())
+        .finally(() => setRestoring(false));
+      return;
+    }
+
+    setRestoring(false);
+  }, [subscribeRoom]);
+
+  // Persist the session whenever the relevant state changes
+  useEffect(() => {
+    if (restoring) return;
+    if (isSolo && gameState) {
+      saveSession({ roomId: 'SOLO', myPlayerIndex: 0, isHost: true, isSolo: true, soloState: gameState });
+    } else if (!isSolo && roomId) {
+      saveSession({ roomId, myPlayerIndex, isHost, isSolo: false });
+    }
+  }, [restoring, isSolo, roomId, myPlayerIndex, isHost, gameState]);
 
   // Cleanup subscription
   useEffect(() => {
@@ -74,6 +116,7 @@ export default function App() {
       const initialState = createInitialState(code, playerName);
       await createRoom(code, initialState);
 
+      setGameState(initialState);
       setRoomId(code);
       setMyPlayerIndex(0);
       setIsHost(true);
@@ -122,6 +165,7 @@ export default function App() {
 
       await setRoomState(code.toUpperCase(), updatedState);
 
+      setGameState(updatedState);
       setRoomId(code.toUpperCase());
       setMyPlayerIndex(newIndex);
       setIsHost(false);
@@ -181,6 +225,24 @@ export default function App() {
     }
   };
 
+  // EXIT — leave the current game and go back to the menu (fresh start)
+  const handleExit = () => {
+    if (unsubRef.current) {
+      unsubRef.current();
+      unsubRef.current = null;
+    }
+    clearSession();
+    setShowExitConfirm(false);
+    setShowResult(false);
+    setGameState(null);
+    setRoomId('');
+    setMyPlayerIndex(-1);
+    setIsHost(false);
+    setIsSolo(false);
+    setError('');
+    setScreen('landing');
+  };
+
   const isMyTurn = gameState?.currentPlayerIdx === myPlayerIndex;
 
   return (
@@ -201,7 +263,14 @@ export default function App() {
         </div>
       )}
 
-      {screen === 'landing' && (
+      {restoring && (
+        <div className="min-h-dvh flex flex-col items-center justify-center gap-4">
+          <span className="w-10 h-10 border-2 border-neon-aqua/30 border-t-neon-aqua rounded-full animate-spin" />
+          <p className="text-white/50 font-display text-sm">Recuperando tu partida…</p>
+        </div>
+      )}
+
+      {!restoring && screen === 'landing' && (
         <Landing
           onCreateRoom={handleCreateRoom}
           onJoinRoom={handleJoinRoom}
@@ -217,6 +286,7 @@ export default function App() {
           isHost={isHost}
           myPlayerIndex={myPlayerIndex}
           onStartGame={handleStartGame}
+          onExit={() => setShowExitConfirm(true)}
         />
       )}
 
@@ -229,6 +299,7 @@ export default function App() {
             onPlaceCard={handlePlaceCard}
             onNextTurn={handleNextTurn}
             showResult={showResult}
+            onExit={() => setShowExitConfirm(true)}
           />
           {showResult && gameState.lastResult && (
             <ResultOverlay
@@ -241,11 +312,47 @@ export default function App() {
         </>
       )}
 
+      {/* Exit confirmation */}
+      {showExitConfirm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 animate-fade-in"
+             style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}>
+          <div className="w-full max-w-sm animate-bounce-in">
+            <div className="glass p-7 text-center neon-glow-coral border-neon-coral/30">
+              <div className="text-5xl mb-3">🚪</div>
+              <h2 className="font-display font-black text-2xl text-white mb-2">¿Salir del juego?</h2>
+              <p className="text-white/50 text-sm mb-6 font-body">
+                Volverás al menú principal{isSolo ? ' y perderás esta partida.' : '.'}
+              </p>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowExitConfirm(false)}
+                  className="flex-1 rounded-xl py-3 font-display font-bold text-white/80
+                             bg-white/10 border border-white/10 hover:bg-white/20
+                             transition-all active:scale-95"
+                >
+                  Cancelar
+                </button>
+                <button
+                  id="btn-confirm-exit"
+                  onClick={handleExit}
+                  className="flex-1 rounded-xl py-3 font-display font-bold text-white
+                             bg-neon-coral hover:shadow-[0_0_30px_rgba(255,45,149,0.35)]
+                             transition-all active:scale-95"
+                >
+                  Salir
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {gameState?.phase === 'finished' && (
         <VictoryScreen
           gameState={gameState}
           myPlayerIndex={myPlayerIndex}
           onPlayAgain={() => {
+            clearSession();
             setScreen('landing');
             setGameState(null);
             setRoomId('');

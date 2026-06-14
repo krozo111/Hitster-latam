@@ -61,8 +61,8 @@ export default function ResultOverlay({ result, card, onContinue, isMyTurn }: Re
             className={`w-full rounded-xl py-3.5 font-display font-bold text-lg
               transition-all duration-300 active:scale-95
               ${isCorrect 
-                ? 'bg-neon-aqua text-dark-900 hover:shadow-[0_0_30px_rgba(78,205,196,0.3)]' 
-                : 'bg-neon-coral text-white hover:shadow-[0_0_30px_rgba(255,107,107,0.3)]'
+                ? 'bg-neon-aqua text-dark-900 hover:shadow-[0_0_30px_rgba(45,226,230,0.35)]' 
+                : 'bg-neon-coral text-white hover:shadow-[0_0_30px_rgba(255,45,149,0.35)]'
               }`}
           >
             Siguiente Turno →

@@ -90,7 +90,7 @@ export default function VictoryScreen({ gameState, myPlayerIndex, onPlayAgain }:
         className="w-full max-w-sm bg-gradient-to-r from-neon-coral via-neon-purple to-neon-aqua
                    rounded-xl py-4 font-display font-bold text-lg text-white
                    transition-all duration-300 
-                   hover:shadow-[0_0_40px_rgba(168,85,247,0.3)]
+                   hover:shadow-[0_0_40px_rgba(155,93,229,0.35)]
                    active:scale-95
                    animate-slide-up"
         style={{ animationDelay: '0.4s' }}

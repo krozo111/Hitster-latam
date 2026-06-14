@@ -11,6 +11,7 @@ interface GameBoardProps {
   onPlaceCard: (insertIdx: number) => void;
   onNextTurn: () => void;
   showResult: boolean;
+  onExit: () => void;
 }
 
 export default function GameBoard({
@@ -20,6 +21,7 @@ export default function GameBoard({
   onPlaceCard,
   onNextTurn,
   showResult,
+  onExit,
 }: GameBoardProps) {
   const [selectedSlot, setSelectedSlot] = useState<number | null>(null);
   const myPlayer = gameState.players[myPlayerIndex];
@@ -61,16 +63,27 @@ export default function GameBoard({
       {/* Top Bar */}
       <div className="sticky top-0 z-30 glass border-b border-white/5 px-4 py-3">
         <div className="flex items-center justify-between max-w-lg mx-auto">
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-white/40 font-display">Sala</span>
-            <span className="font-display font-bold text-neon-aqua text-sm">{gameState.roomId}</span>
-          </div>
+          <button
+            id="btn-exit-game"
+            onClick={onExit}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-display
+                       text-white/60 bg-white/5 border border-white/10
+                       hover:text-neon-coral hover:border-neon-coral/40 transition-all active:scale-95"
+          >
+            <span>🚪</span> Salir
+          </button>
 
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-white/40">Mazo:</span>
-            <span className="font-display font-bold text-neon-purple text-sm">
-              {gameState.deck.length}
-            </span>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-white/40 font-display">Sala</span>
+              <span className="font-display font-bold text-neon-aqua text-sm">{gameState.roomId}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-white/40">Mazo:</span>
+              <span className="font-display font-bold text-neon-purple text-sm">
+                {gameState.deck.length}
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -109,7 +122,7 @@ export default function GameBoard({
             </div>
 
             {/* YouTube Player */}
-            <YouTubePlayer videoId={card.yt} />
+            <YouTubePlayer videoIds={[card.yt, ...(card.alts ?? [])]} />
           </div>
         </div>
       )}
@@ -165,7 +178,7 @@ export default function GameBoard({
                 className="w-full bg-gradient-to-r from-neon-aqua to-neon-purple
                            rounded-xl py-4 font-display font-bold text-lg text-white
                            transition-all duration-300
-                           hover:shadow-[0_0_30px_rgba(78,205,196,0.3)]
+                           hover:shadow-[0_0_30px_rgba(45,226,230,0.35)]
                            active:scale-95"
               >
                 ¡Confirmar Colocación! ✨

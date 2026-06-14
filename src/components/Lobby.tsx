@@ -6,15 +6,26 @@ interface LobbyProps {
   isHost: boolean;
   myPlayerIndex: number;
   onStartGame: () => void;
+  onExit: () => void;
 }
 
-export default function Lobby({ gameState, roomId, isHost, myPlayerIndex, onStartGame }: LobbyProps) {
+export default function Lobby({ gameState, roomId, isHost, myPlayerIndex, onStartGame, onExit }: LobbyProps) {
   const copyCode = () => {
     navigator.clipboard.writeText(roomId);
   };
 
   return (
-    <div className="min-h-dvh flex flex-col items-center justify-center px-4 py-8">
+    <div className="min-h-dvh flex flex-col items-center justify-center px-4 py-8 relative">
+      {/* Exit button */}
+      <button
+        onClick={onExit}
+        className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-display
+                   text-white/60 bg-white/5 border border-white/10
+                   hover:text-neon-coral hover:border-neon-coral/40 transition-all active:scale-95"
+      >
+        <span>🚪</span> Salir
+      </button>
+
       {/* Room Code */}
       <div className="text-center mb-8 animate-fade-in">
         <p className="text-white/40 text-sm font-display uppercase tracking-wider mb-2">
@@ -117,7 +128,7 @@ export default function Lobby({ gameState, roomId, isHost, myPlayerIndex, onStar
           className="w-full max-w-sm bg-gradient-to-r from-neon-coral via-neon-purple to-neon-aqua
                      rounded-xl py-4 font-display font-bold text-lg text-white
                      transition-all duration-300 
-                     hover:shadow-[0_0_40px_rgba(168,85,247,0.3)]
+                     hover:shadow-[0_0_40px_rgba(155,93,229,0.35)]
                      active:scale-95
                      disabled:opacity-30 disabled:cursor-not-allowed
                      animate-slide-up"

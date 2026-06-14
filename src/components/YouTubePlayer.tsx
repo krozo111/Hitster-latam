@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 
 interface YouTubePlayerProps {
-  videoId: string;
+  // Primary video id followed by fallbacks; tried in order if one won't embed.
+  videoIds: string[];
 }
 
 declare global {
@@ -37,66 +38,82 @@ function loadYouTubeAPI(): Promise<void> {
   });
 }
 
-export default function YouTubePlayer({ videoId }: YouTubePlayerProps) {
+export default function YouTubePlayer({ videoIds }: YouTubePlayerProps) {
   const playerDivRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<any>(null);
-  const [status, setStatus] = useState<'loading' | 'ready' | 'playing' | 'paused' | 'error'>('loading');
-  const currentVideoIdRef = useRef(videoId);
+  const [status, setStatus] = useState<'loading' | 'switching' | 'ready' | 'playing' | 'paused' | 'error'>('loading');
+
+  // Keep the latest list without forcing player recreation on every parent render
+  const idsRef = useRef(videoIds);
+  idsRef.current = videoIds;
+  const attemptRef = useRef(0);
+  const idsKey = videoIds.join(',');
+
+  const [currentVideoId, setCurrentVideoId] = useState(videoIds[0] ?? '');
+
+  // When the song changes, start over from the primary video
+  useEffect(() => {
+    attemptRef.current = 0;
+    setStatus('loading');
+    setCurrentVideoId(idsRef.current[0] ?? '');
+  }, [idsKey]);
 
   const createPlayer = useCallback(async () => {
     await loadYouTubeAPI();
 
-    // Destroy old player
     if (playerRef.current) {
       try { playerRef.current.destroy(); } catch (_) {}
       playerRef.current = null;
     }
+    if (!playerDivRef.current || !currentVideoId) return;
 
-    if (!playerDivRef.current) return;
-
-    // Clear container and create fresh div
     const wrapper = playerDivRef.current;
     wrapper.innerHTML = '';
     const el = document.createElement('div');
     el.id = `yt-${Date.now()}`;
     wrapper.appendChild(el);
 
-    setStatus('loading');
-    currentVideoIdRef.current = videoId;
-
     playerRef.current = new window.YT.Player(el.id, {
       width: '100%',
-      height: '200',
-      videoId,
+      height: '100%',
+      videoId: currentVideoId,
       playerVars: {
         autoplay: 0,
-        controls: 1,       // Show native controls so user can interact
+        controls: 1,
         modestbranding: 1,
-        playsinline: 1,     // Critical for iOS
+        playsinline: 1,
         rel: 0,
         fs: 0,
         origin: window.location.origin,
       },
       events: {
-        onReady: () => {
-          setStatus('ready');
-        },
+        onReady: () => setStatus('ready'),
         onStateChange: (e: any) => {
           const s = e.data;
           if (s === window.YT.PlayerState.PLAYING) setStatus('playing');
           else if (s === window.YT.PlayerState.PAUSED) setStatus('paused');
           else if (s === window.YT.PlayerState.ENDED) setStatus('ready');
+          else if (s === window.YT.PlayerState.CUED) setStatus('ready');
         },
         onError: (e: any) => {
-          console.warn('YT player error', e.data, 'for video', videoId);
-          setStatus('error');
+          // This video won't embed / is unavailable — try the next candidate
+          const next = attemptRef.current + 1;
+          if (next < idsRef.current.length) {
+            console.warn('YT error', e.data, '→ trying alternative', next);
+            attemptRef.current = next;
+            setStatus('switching');
+            setCurrentVideoId(idsRef.current[next]);
+          } else {
+            setStatus('error');
+          }
         },
       },
     });
-  }, [videoId]);
+  }, [currentVideoId]);
 
-  // Re-create player when videoId changes
+  // Recreate the player whenever the active video id changes
   useEffect(() => {
+    if (!currentVideoId) return;
     createPlayer();
     return () => {
       if (playerRef.current) {
@@ -104,31 +121,35 @@ export default function YouTubePlayer({ videoId }: YouTubePlayerProps) {
         playerRef.current = null;
       }
     };
-  }, [videoId, createPlayer]);
+  }, [currentVideoId, createPlayer]);
 
   const handlePlay = () => {
     try {
       playerRef.current?.playVideo();
     } catch (_) {
-      window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank', 'noopener');
+      window.open(`https://www.youtube.com/watch?v=${currentVideoId}`, '_blank', 'noopener');
     }
   };
 
+  const isLoading = status === 'loading' || status === 'switching';
+
   return (
     <div className="glass-card overflow-hidden border-white/10">
-      {/* Embedded YouTube iframe - visible with native controls */}
+      {/* Embedded YouTube iframe - 16:9 frame so the video fills it cleanly */}
       <div
         ref={playerDivRef}
-        className="w-full bg-dark-800"
-        style={{ minHeight: status === 'error' ? 0 : 200 }}
+        className="w-full aspect-video bg-dark-800"
+        style={{ display: status === 'error' ? 'none' : 'block' }}
       />
 
       {/* Status bar below the player */}
       <div className="px-4 py-3 flex items-center gap-3">
-        {status === 'loading' && (
+        {isLoading && (
           <>
             <span className="w-5 h-5 border-2 border-neon-aqua/30 border-t-neon-aqua rounded-full animate-spin flex-shrink-0" />
-            <span className="text-sm text-white/50 font-display">Cargando reproductor…</span>
+            <span className="text-sm text-white/50 font-display">
+              {status === 'switching' ? 'Buscando otra versión…' : 'Cargando reproductor…'}
+            </span>
           </>
         )}
 
@@ -184,15 +205,15 @@ export default function YouTubePlayer({ videoId }: YouTubePlayerProps) {
         {status === 'error' && (
           <div className="flex flex-col gap-2 w-full">
             <p className="text-neon-coral text-sm font-display">
-              ⚠️ Este video no permite reproducción embebida
+              ⚠️ No encontramos una versión reproducible aquí
             </p>
             <a
-              href={`https://www.youtube.com/watch?v=${videoId}`}
+              href={`https://www.youtube.com/watch?v=${currentVideoId}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full text-center py-3 rounded-xl bg-red-500/20 text-red-400 
-                         font-display font-semibold text-sm border border-red-500/20
-                         hover:bg-red-500/30 transition-all active:scale-95"
+              className="w-full text-center py-3 rounded-xl bg-neon-coral/20 text-neon-coral
+                         font-display font-semibold text-sm border border-neon-coral/20
+                         hover:bg-neon-coral/30 transition-all active:scale-95"
             >
               🎬 Abrir en YouTube ↗
             </a>

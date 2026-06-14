@@ -3,7 +3,8 @@ export interface Song {
   title: string;
   artist: string;
   year: number;
-  yt: string; // YouTube video ID
+  yt: string; // Primary YouTube video ID
+  alts?: string[]; // Fallback video IDs tried if the primary won't embed
 }
 
 export interface Player {

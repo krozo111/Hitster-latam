@@ -4,19 +4,20 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Miami 90s / synthwave palette
         neon: {
-          coral: '#FF7E00',  // Warm Orange
-          aqua: '#00B4D8',   // Bright Teal
-          purple: '#0077B6', // Dark Teal
-          pink: '#FFA500',   // Light Orange
-          yellow: '#FBBF24', // Gold/Yellow
+          coral: '#FF2D95',  // Hot Miami pink
+          aqua: '#2DE2E6',   // Electric cyan
+          purple: '#9B5DE5', // Electric purple
+          pink: '#FF6AD5',   // Light neon pink
+          yellow: '#FFC857', // Sunset gold
         },
         dark: {
-          900: '#0a0a0f',
-          800: '#12121a',
-          700: '#1a1a2e',
-          600: '#252540',
-          500: '#2d2d4a',
+          900: '#0B0420',  // Deep purple night
+          800: '#140A2E',
+          700: '#1E1145',
+          600: '#2B1A5E',
+          500: '#3A2570',
         }
       },
       fontFamily: {
@@ -30,14 +31,13 @@ export default {
         'slide-down': 'slideDown 0.3s ease-out',
         'fade-in': 'fadeIn 0.4s ease-out',
         'pulse-neon': 'pulseNeon 2s ease-in-out infinite',
-        'flip': 'flipCard 0.6s ease-in-out',
         'bounce-in': 'bounceIn 0.5s ease-out',
         'shimmer': 'shimmer 2s linear infinite',
       },
       keyframes: {
         glow: {
-          '0%': { boxShadow: '0 0 5px rgba(78, 205, 196, 0.3), 0 0 20px rgba(78, 205, 196, 0.1)' },
-          '100%': { boxShadow: '0 0 10px rgba(78, 205, 196, 0.5), 0 0 40px rgba(78, 205, 196, 0.2)' },
+          '0%': { boxShadow: '0 0 5px rgba(45, 226, 230, 0.3), 0 0 20px rgba(45, 226, 230, 0.1)' },
+          '100%': { boxShadow: '0 0 10px rgba(45, 226, 230, 0.5), 0 0 40px rgba(45, 226, 230, 0.2)' },
         },
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
@@ -58,11 +58,6 @@ export default {
         pulseNeon: {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0.7' },
-        },
-        flipCard: {
-          '0%': { transform: 'rotateY(0deg)' },
-          '50%': { transform: 'rotateY(90deg)' },
-          '100%': { transform: 'rotateY(0deg)' },
         },
         bounceIn: {
           '0%': { transform: 'scale(0.3)', opacity: '0' },

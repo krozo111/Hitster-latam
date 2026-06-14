@@ -165,7 +165,7 @@ export default function Landing({ onCreateRoom, onJoinRoom, onPlaySolo, error }:
                 className="w-full bg-gradient-to-r from-neon-aqua to-neon-aqua/80 
                            rounded-xl py-3.5 font-display font-bold text-dark-900
                            transition-all duration-300 
-                           hover:shadow-[0_0_30px_rgba(78,205,196,0.3)]
+                           hover:shadow-[0_0_30px_rgba(45,226,230,0.35)]
                            active:scale-95
                            disabled:opacity-40 disabled:cursor-not-allowed"
               >
@@ -241,7 +241,7 @@ export default function Landing({ onCreateRoom, onJoinRoom, onPlaySolo, error }:
                 className="w-full bg-gradient-to-r from-neon-purple to-neon-purple/80 
                            rounded-xl py-3.5 font-display font-bold text-white
                            transition-all duration-300 
-                           hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]
+                           hover:shadow-[0_0_30px_rgba(155,93,229,0.35)]
                            active:scale-95
                            disabled:opacity-40 disabled:cursor-not-allowed"
               >
